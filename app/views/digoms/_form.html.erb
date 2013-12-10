@@ -1,0 +1,57 @@
+<%= form_for(@digom) do |f| %>
+  <% if @digom.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@digom.errors.count, "error") %> prohibited this digom from being saved:</h2>
+
+      <ul>
+      <% @digom.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :corp %><br>
+    <%= f.text_field :corp %>
+  </div>
+  <div class="field">
+    <%= f.label :factory %><br>
+    <%= f.text_field :factory %>
+  </div>
+  <div class="field">
+    <%= f.label :persents %><br>
+    <%= f.text_field :persents %>
+  </div>
+  <div class="field">
+    <%= f.label :numOfFlows %><br>
+    <%= f.number_field :numOfFlows %>
+  </div>
+  <div class="field">
+    <%= f.label :flowType %><br>
+    <%= f.text_field :flowType %>
+  </div>
+  <div class="field">
+    <%= f.label :notes %><br>
+    <%= f.text_field :notes %>
+  </div>
+  <div class="field">
+    <%= f.label :lab %><br>
+    <%= f.text_field :lab %>
+  </div>
+  <div class="field">
+    <%= f.label :samplerName %><br>
+    <%= f.text_field :samplerName %>
+  </div>
+  <div class="field">
+    <%= f.label :parameters %><br>
+    <%= f.text_field :parameters %>
+  </div>
+  <div class="field">
+    <%= f.label :executed %><br>
+    <%= f.check_box :executed %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
