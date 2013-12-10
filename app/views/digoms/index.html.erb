@@ -1,45 +1,16 @@
-<h1>Listing digoms</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Corp</th>
-      <th>Factory</th>
-      <th>Persents</th>
-      <th>Numofflows</th>
-      <th>Flowtype</th>
-      <th>Notes</th>
-      <th>Lab</th>
-      <th>Samplername</th>
-      <th>Parameters</th>
-      <th>Executed</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
+<div data-role="header">
+  <h1>Listing Digomim</h1>
+  <%= link_to 'Add', new_digom_path, "data-icon" => "plus", "class" => "ui-btn-right" %>
+</div>
+ 
+<div data-role="content">
+  <ul data-role="listview">
     <% @digoms.each do |digom| %>
-      <tr>
-        <td><%= digom.corp %></td>
-        <td><%= digom.factory %></td>
-        <td><%= digom.persents %></td>
-        <td><%= digom.numOfFlows %></td>
-        <td><%= digom.flowType %></td>
-        <td><%= digom.notes %></td>
-        <td><%= digom.lab %></td>
-        <td><%= digom.samplerName %></td>
-        <td><%= digom.parameters %></td>
-        <td><%= digom.executed %></td>
-        <td><%= link_to 'Show', digom %></td>
-        <td><%= link_to 'Edit', edit_digom_path(digom) %></td>
-        <td><%= link_to 'Destroy', digom, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+    <li>
+      <%= link_to digom.corp, digom %>
+      <%= link_to 'edit digom', edit_digom_path(digom), "data-icon" => "gear" %>
+    </li>
     <% end %>
-  </tbody>
-</table>
+  </ul>
+</div>
 
-<br>
-
-<%= link_to 'New Digom', new_digom_path %>

@@ -1,6 +1,9 @@
-<h1>Editing digom</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @digom %> |
-<%= link_to 'Back', digoms_path %>
+<div data-role="header">
+  <h1>Editing Digom</h1>
+  <%= link_to 'Delete', @digom, :method => :delete, "data-icon" => "delete", "class" => "ui-btn-right" %>
+  <%= link_to 'Home', digoms_url, "class" => "ui-btn-right" %>
+</div>
+ 
+<div data-role="content">
+  <%= render 'form' %>
+</div>
