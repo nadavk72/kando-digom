@@ -7,7 +7,7 @@
   <ul data-role="listview">
     <% @digoms.each do |digom| %>
     <li>
-      <%= link_to digom.corp, digom %>
+      <%= link_to digom.digomId, digom %>
       <%= link_to 'edit digom', edit_digom_path(digom), "data-icon" => "gear" %>
     </li>
     <% end %>

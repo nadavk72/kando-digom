@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131210213638) do
+ActiveRecord::Schema.define(version: 20131211085655) do
 
   create_table "digoms", force: true do |t|
     t.string   "corp"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20131210213638) do
     t.boolean  "executed"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "digomId"
   end
 
 end

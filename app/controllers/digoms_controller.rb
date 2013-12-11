@@ -28,8 +28,7 @@ class DigomsController < ApplicationController
 
     respond_to do |format|
       if @digom.save
-        format.html { redirect_to @digom, notice: 'Digom was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @digom }
+        format.html { redirect_to digoms_url }
       else
         format.html { render action: 'new' }
         format.json { render json: @digom.errors, status: :unprocessable_entity }
@@ -69,6 +68,6 @@ class DigomsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def digom_params
-      params.require(:digom).permit(:corp, :factory, :persents, :numOfFlows, :flowType, :notes, :lab, :samplerName, :parameters, :executed)
+      params.require(:digom).permit(:digomId, :corp, :factory, :persents, :numOfFlows, :flowType, :notes, :lab, :samplerName, :parameters, :executed)
     end
 end
