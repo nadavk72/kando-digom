@@ -17,7 +17,7 @@
   </div>
   <div class="field">
     <%= f.label :corporate_id %><br>
-    <%= f.number_field :corporate_id %>
+    <%=  select(:factory, :corporate_id, Corporate.find(:all, :order=>:name).collect{ |c| [c.name,c.id]} , {}, {:"data-native-menu" => "false"}) %>
   </div>
   <div class="actions">
     <%= f.submit %>

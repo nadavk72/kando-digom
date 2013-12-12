@@ -28,7 +28,7 @@ class FactoriesController < ApplicationController
 
     respond_to do |format|
       if @factory.save
-        format.html { redirect_to @factory, notice: 'Factory was successfully created.' }
+        format.html { redirect_to factories_url, notice: 'Factory was successfully created.' }
         format.json { render action: 'show', status: :created, location: @factory }
       else
         format.html { render action: 'new' }
