@@ -1,0 +1,29 @@
+<h1>Listing factories</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Corporate</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @factories.each do |factory| %>
+      <tr>
+        <td><%= factory.name %></td>
+        <td><%= factory.corporate_id %></td>
+        <td><%= link_to 'Show', factory %></td>
+        <td><%= link_to 'Edit', edit_factory_path(factory) %></td>
+        <td><%= link_to 'Destroy', factory, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Factory', new_factory_path %>

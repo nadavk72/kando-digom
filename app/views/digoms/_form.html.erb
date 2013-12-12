@@ -12,16 +12,12 @@
   <% end %>
   
   <div class="field">
-    <%= f.label :"שם דיגום" %><br>
-    <%= f.text_field :digomId %>
-  </div>
-  <div class="field">
     <%= f.label :תאגיד %><br>
-    <%= f.text_field :corp %>
+    <%=  select(:digom, :corp, Corporate.find(:all, :order=>:name).collect{ |c| [c.name,c.name]} , {}, {:"data-native-menu" => "false"}) %>
   </div>
   <div class="field">
     <%= f.label :מפעל %><br>
-    <%= f.text_field :factory %>
+    <%=  select(:digom, :factory, Factory.find(:all, :order=>:name).collect{ |c| [c.name,c.name]} , {}, {:"data-native-menu" => "false"}) %>
   </div>
   <div class="field">
     <%= f.label :נוכחים %><br>
@@ -34,7 +30,7 @@
   <div class="field">
     <%= f.label :"אופי זרמים" %><br>
     <%= f.text_field :flowType %>
-  </div>
+  </div>  
   <div class="field">
     <%= f.label :הערות %><br>
     <%= f.text_field :notes %>

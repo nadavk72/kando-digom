@@ -1,4 +1,8 @@
 Kando::Application.routes.draw do
+  resources :factories
+
+  resources :corporates
+
   resources :digoms
   root :to => "digoms#index"
 

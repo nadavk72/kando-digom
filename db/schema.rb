@@ -11,7 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131211085655) do
+ActiveRecord::Schema.define(version: 20131212195750) do
+
+  create_table "corporates", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "digoms", force: true do |t|
     t.string   "corp"
@@ -27,6 +33,13 @@ ActiveRecord::Schema.define(version: 20131211085655) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "digomId"
+  end
+
+  create_table "factories", force: true do |t|
+    t.string   "name"
+    t.integer  "corporate_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end
