@@ -6,6 +6,6 @@ class CreateFactories < ActiveRecord::Migration
 
       t.timestamps
     end
-    add_index :microposts, [:corporate_id, :created_at]
+    add_index :factories, [:corporate_id, :created_at]
   end
 end
