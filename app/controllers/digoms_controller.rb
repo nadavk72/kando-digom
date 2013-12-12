@@ -68,6 +68,6 @@ class DigomsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def digom_params
-      params.require(:digom).permit(:digomId, :corp, :factory, :persents, :numOfFlows, :flowType, :notes, :lab, :samplerName, :parameters, :executed)
+      params.require(:digom).permit(:counter_call, :owner, :d_date, :digomId, :corp, :factory, :persents, :numOfFlows, :flowType, :notes, :lab, :samplerName, :parameters, :executed)
     end
 end

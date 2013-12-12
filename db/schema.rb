@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131212195750) do
+ActiveRecord::Schema.define(version: 20131212215609) do
 
   create_table "corporates", force: true do |t|
     t.string   "name"
@@ -33,6 +33,9 @@ ActiveRecord::Schema.define(version: 20131212195750) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "digomId"
+    t.string   "counter_call"
+    t.string   "owner"
+    t.date     "d_date"
   end
 
   create_table "factories", force: true do |t|

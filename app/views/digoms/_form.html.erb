@@ -19,10 +19,25 @@
     <%= f.label :מפעל %><br>
     <%=  select(:digom, :factory, Factory.find(:all, :order=>:name).collect{ |c| [c.name,c.name]} , {}, {:"data-native-menu" => "false"}) %>
   </div>
+
+  <div class="field">
+    <%= f.label :"תאריך דיגום" %><br>
+    <%= f.date_field :d_date , :value => Time.now   %>
+  </div>
+  <div class="field">
+    <%= f.label :"קריאת מונה" %><br>
+    <%= f.text_field :counter_call %>
+  </div>
+  <div class="field">
+    <%= f.label :"שם דוגם" %><br>
+    <%= f.text_field :owner %>
+  </div>
+
   <div class="field">
     <%= f.label :נוכחים %><br>
     <%= f.text_field :persents %>
   </div>
+
   <div class="field">
     <%= f.label :"כמות זרמים" %><br>
     <%= f.number_field :numOfFlows %>

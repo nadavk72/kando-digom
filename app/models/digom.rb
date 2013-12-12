@@ -2,10 +2,10 @@ class Digom < ActiveRecord::Base
 
 	validates  :digomId, uniqueness: true
 	
-	before_create :create_digomId
+	 before_validation :create_digomId
 	
 
 	def create_digomId
-    self.digomId = "#{factory} | #{Time.now.to_formatted_s(:db) }"
+    self.digomId = "#{factory} | #{d_date }"
   end
 end
