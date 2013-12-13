@@ -6,6 +6,8 @@ Kando::Application.routes.draw do
   resources :digoms
   root :to => "digoms#index"
 
+  match '/index.html', :to => "digoms#index", via: 'get'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
