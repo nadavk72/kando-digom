@@ -11,6 +11,7 @@
     </div>
   <% end %>
   
+  
   <div class="field">
     <%= f.label :תאגיד %><br>
     <%=  select(:digom, :corp, Corporate.find(:all, :order=>:name).collect{ |c| [c.name,c.name]} , {}, {:"data-native-menu" => "false"}) %>
