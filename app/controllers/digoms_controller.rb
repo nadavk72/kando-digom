@@ -15,6 +15,8 @@ class DigomsController < ApplicationController
   # GET /digoms/new
   def new
     @digom = Digom.new
+    @digom.d_date = Time.now
+    @digom.t_time = Time.now
   end
 
   # GET /digoms/1/edit
@@ -68,6 +70,6 @@ class DigomsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def digom_params
-      params.require(:digom).permit(:counter_call, :owner, :d_date, :digomId, :corp, :factory, :persents, :numOfFlows, :flowType, :notes, :lab, :samplerName, :parameters, :executed)
+      params.require(:digom).permit(:counter_call, :owner, :t_time, :d_date, :digomId, :corp, :factory, :persents, :numOfFlows, :flowType, :notes, :lab, :samplerName, :parameters, :executed)
     end
 end

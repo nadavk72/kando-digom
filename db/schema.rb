@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131212215609) do
+ActiveRecord::Schema.define(version: 20131218213105) do
 
   create_table "corporates", force: true do |t|
     t.string   "name"
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 20131212215609) do
     t.string   "counter_call"
     t.string   "owner"
     t.date     "d_date"
+    t.time     "t_time"
   end
 
   create_table "factories", force: true do |t|
