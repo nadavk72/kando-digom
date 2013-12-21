@@ -1,86 +1,83 @@
 <div data-role="header">
-  <h1><%= @digom.corp %></h1>
-  <%= link_to 'Home', digoms_url, "class" => "ui-btn-right" %>
+  <h1><%= @digom.digomId %></h1>
+  <%= link_to t('home'), digoms_url, "class" => "ui-btn-right" %>
 </div>
 
 <div data-role="content">
 
 <p>
-  <strong>שם דיגום:</strong>
+  <strong><%=t('digomId') + ":"%></strong>
   <%= @digom.digomId %>
 </p>
 
 <p>
-  <strong>תאגיד:</strong>
+  <strong><%=t('corporation') + ":"%></strong>
   <%= @digom.corp %>
 </p>
 
 <p>
-  <strong>מפעל:</strong>
+  <strong><%=t('factory') + ":"%></strong>
   <%= @digom.factory %>
 </p>
 
 <p>
-  <strong>תאריך דיגום:</strong>
+  <strong><%=t('sampling_date') + ":"%></strong>
   <%= @digom.d_date %>
 </p>
 
 <p>
-  <strong>שעת דיגום:</strong>
+  <strong><%=t('sampling_time') + ":"%></strong>
   <%= @digom.t_time.strftime('%H:%M') %>
 
 </p>
 
 <p>
-  <strong>קריאת מונה:</strong>
-  <%= @digom.counter_call %>
-</p>
-
-<p>
-  <strong>שם דוגם:</strong>
-  <%= @digom.owner %>
-</p>
-
-<p>
-  <strong>נוכחים:</strong>
+  <strong><%=t('presents') + ":"%></strong>
   <%= @digom.persents %>
 </p>
 
 <p>
-  <strong>כמות זרמים:</strong>
+  <strong><%=t('num_of_flows') + ":"%></strong>
   <%= @digom.numOfFlows %>
 </p>
 
 <p>
-  <strong>אופי הזרם:</strong>
+  <strong><%=t('flow_type') + ":"%></strong>
   <%= @digom.flowType %>
 </p>
 
 <p>
-  <strong>הערות:</strong>
+  <strong><%=t('notes') + ":"%></strong>
   <%= @digom.notes %>
 </p>
 
 <p>
-  <strong>מעבדה:</strong>
+  <strong><%=t('lab') + ":"%></strong>
   <%= @digom.lab %>
 </p>
 
 <p>
-  <strong>שם דוגם:</strong>
+  <strong><%=t('sampler_name') + ":"%></strong>
   <%= @digom.samplerName %>
 </p>
 
 <p>
-  <strong>פרמטרים:</strong>
+  <strong><%=t('parameters') + ":"%></strong>
   <%= @digom.parameters %>
 </p>
 
 <p>
-  <strong>לא בוצע דיגום:</strong>
-  <%= @digom.executed %>
+  <strong><%=t('conductivity') + ":"%></strong>
+  <%= @digom.conductivity %>
 </p>
 
+<p>
+  <strong><%=t('ph') + ":"%></strong>
+  <%= @digom.PH %>
+</p>
+
+<p>
+  <strong><%=t('executed') + ":"%></strong>
+  <%= @digom.executed %>
+</p>
 </div>
-
-

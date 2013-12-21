@@ -20,9 +20,40 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  digoms_list: "Sampling List"
   hello: "Hello world"
   date:
     formats:
       default: ! '%d.%m.%Y'
       long: ! '%a, %e. %B %Y'
       short: ! '%e. %b'
+
+  corporation: "Corporation"
+  factory: "Factory"
+  sampling_date: "Sampling Date"
+  sampling_time: "Sampling Time"
+  counter_call: "Counter Call"
+  owner: "The Sampler"
+  presents: "Persents"
+  num_of_flows: "Number Of Flows"
+  flow_type: "Flow Type"
+  notes: "Notes"
+  lab: "Lab Name"
+  sampler_name: "Sampler Name"
+  parameters: "Parameters"
+  executed: "Was not Executed?"
+  digomId: "Sampling Name"
+  update_sampling: "Update Sampling"
+  new_sampling: "New Sampling"
+  conductivity: "Conductivity"
+  ph: "PH"
+  home: Home
+  edit: Edit
+  delete: Delete
+  add: Add
+ 
+
+  activerecord:
+    models:
+      digom: Sampling
+

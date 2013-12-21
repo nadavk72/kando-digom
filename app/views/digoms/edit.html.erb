@@ -1,7 +1,7 @@
 <div data-role="header">
-  <h1>Editing Digom</h1>
-  <%= link_to 'Delete', @digom, :method => :delete, "data-icon" => "delete", "class" => "ui-btn-left" %>
-<%= link_to 'Home', digoms_url, "class" => "ui-btn-right" %>
+  <h1><%= t('update_sampling') %></h1>
+  <%= link_to t('delete'), @digom, :method => :delete, "data-icon" => "delete", "class" => "ui-btn-left" %>
+<%= link_to t('home'), digoms_url, "class" => "ui-btn-right" %>
   
 </div>
  

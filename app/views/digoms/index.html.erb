@@ -1,6 +1,6 @@
 <div data-role="header">
-  <h1>רשימת דיגומים</h1>
-  <%= link_to 'Add', new_digom_path, "data-icon" => "plus", "class" => "ui-btn-right" %>
+  <h1><%=t('digoms_list') %></h1>
+  <%= link_to t('add'), new_digom_path, "data-icon" => "plus", "class" => "ui-btn-right" %>
 </div>
  
 <div data-role="content">
@@ -8,7 +8,7 @@
     <% @digoms.each do |digom| %>
     <li>
       <%= link_to digom.digomId, digom %>
-      <%= link_to 'edit digom', edit_digom_path(digom), "data-icon" => "gear" %>
+      <%= link_to t('edit'), edit_digom_path(digom), "data-icon" => "gear" %>
     </li>
     <% end %>
   </ul>

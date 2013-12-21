@@ -13,66 +13,71 @@
   
   
   <div class="field">
-    <%= f.label :תאגיד %><br>
+    <%= f.label t('corporation')  %><br>
     <%=  select(:digom, :corp, Corporate.find(:all, :order=>:name).collect{ |c| [c.name,c.name]} , {}, {:"data-native-menu" => "false"}) %>
   </div>
   <div class="field">
-    <%= f.label :מפעל %><br>
+    <%= f.label t 'factory' %><br>
     <%=  select(:digom, :factory, Factory.find(:all, :order=>:name).collect{ |c| [c.name,c.name]} , {}, {:"data-native-menu" => "false"}) %>
   </div>
 
   <div class="field">
-    <%= f.label :"תאריך דיגום" %><br>
+    <%= f.label t 'sampling_date' %><br>
     <%= f.date_field :d_date  %>
   </div>
 
 <div class="field">
-    <%= f.label :"שעת דיגום" %><br>
+    <%= f.label t 'sampling_time' %><br>
     <%= f.time_field :t_time  %>
   </div>
 
   
 
   <div class="field">
-    <%= f.label :"קריאת מונה" %><br>
+    <%= f.label t 'counter_call' %><br>
     <%= f.text_field :counter_call %>
   </div>
   <div class="field">
-    <%= f.label :"שם דוגם" %><br>
-    <%= f.text_field :owner %>
-  </div>
-
-  <div class="field">
-    <%= f.label :נוכחים %><br>
+    <%= f.label t 'presents' %><br>
     <%= f.text_field :persents %>
   </div>
 
   <div class="field">
-    <%= f.label :"כמות זרמים" %><br>
+    <%= f.label t 'num_of_flows' %><br>
     <%= f.number_field :numOfFlows %>
   </div>
   <div class="field">
-    <%= f.label :"אופי זרמים" %><br>
+    <%= f.label t 'flow_type' %><br>
     <%= f.text_field :flowType %>
   </div>  
   <div class="field">
-    <%= f.label :הערות %><br>
+    <%= f.label t 'notes' %><br>
     <%= f.text_field :notes %>
   </div>
   <div class="field">
-    <%= f.label :מעבדה %><br>
+    <%= f.label t 'lab' %><br>
     <%= f.text_field :lab %>
   </div>
   <div class="field">
-    <%= f.label :"שם דוגם" %><br>
+    <%= f.label t 'sampler_name' %><br>
     <%= f.text_field :samplerName %>
   </div>
   <div class="field">
-    <%= f.label :פרמטרים %><br>
+    <%= f.label t 'parameters' %><br>
     <%= f.text_field :parameters %>
   </div>
+   <div class="field">
+    <%= f.label t 'conductivity' %><br>
+    <%= f.text_field :conductivity %>
+  </div>
+
   <div class="field">
-    <%= f.label :"לא בוצע דיגום" %><br>
+    <%= f.label t 'ph' %><br>
+    <%= f.text_field :PH %>
+  </div>
+  
+ <div class="field">
+    <%= f.label t 'executed' %><br>
     <%= f.check_box :executed %>
   </div>
   <div class="actions">

@@ -1,12 +1,18 @@
 Kando::Application.routes.draw do
   resources :factories
-
   resources :corporates
-
   resources :digoms
-  root :to => "digoms#index"
 
+  
+  scope "(:locale)", locale: /en|he/ do
+    resources :digoms
+  end
+
+  root :to => "digoms#index"
   match '/index.html', :to => "digoms#index", via: 'get'
+
+  get '/:locale' => 'digoms#index'
+  
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

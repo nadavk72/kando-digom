@@ -1,0 +1,41 @@
+he:
+
+  digoms_list: "רשימת דיגומים"
+  corporation: "תאגיד"
+  factory: "מפעל"
+  sampling_date: "תאריך דיגום"
+  sampling_time: "שעת דיגום"
+  counter_call: "קריאת מונה"
+  owner: "שם דוגם"
+  presents: "נוחכים"
+  num_of_flows: "כמות זרמים"
+  flow_type: "אופי הזרם"
+  notes: "הערות"
+  lab: "שם מעבדה"
+  sampler_name: "שם דוגם"
+  parameters: "פרמטרים"
+  executed: "לא בוצע דיגום?"
+  digomId: "שם דיגום"
+  update_sampling: "ערוך דיגום"
+  new_sampling: "דיגום חדש"
+  add: "הוסף"
+  edit: "ערוך"
+  delete: "מחק"
+  home: "מסך הבית"
+  conductivity: "מוליכות"
+  ph: "PH"
+
+  activerecord:
+    models:
+      digom: "דיגום"
+
+  helpers:
+   submit:
+    create: "צור %{model}"
+    update: "עדכן %{model}"
+    submit: "שמור %{model}"
+
+   button:
+    create: "צור %{model}"
+    update: "עדכן %{model}"
+    submit: "שמור %{model}"
