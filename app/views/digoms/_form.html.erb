@@ -31,12 +31,6 @@
     <%= f.time_field :t_time  %>
   </div>
 
-  
-
-  <div class="field">
-    <%= f.label t 'counter_call' %><br>
-    <%= f.text_field :counter_call %>
-  </div>
   <div class="field">
     <%= f.label t 'presents' %><br>
     <%= f.text_field :persents %>
@@ -52,7 +46,7 @@
   </div>  
   <div class="field">
     <%= f.label t 'notes' %><br>
-    <%= f.text_field :notes %>
+    <%= f.text_area :notes %>
   </div>
   <div class="field">
     <%= f.label t 'lab' %><br>
@@ -75,7 +69,7 @@
     <%= f.label t 'ph' %><br>
     <%= f.text_field :PH %>
   </div>
-  
+
  <div class="field">
     <%= f.label t 'executed' %><br>
     <%= f.check_box :executed %>
