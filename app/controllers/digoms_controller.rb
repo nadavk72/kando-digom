@@ -16,7 +16,7 @@ class DigomsController < ApplicationController
   def new
     @digom = Digom.new
     @digom.d_date = Time.now
-    @digom.t_time = Time.now
+    @digom.t_time = Time.now.beginning_of_minute()
   end
 
   # GET /digoms/1/edit
