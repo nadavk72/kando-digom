@@ -6,10 +6,10 @@
   <%= stylesheet_link_tag "application", :media => "all" %>
   <%= javascript_include_tag "application" %> 
   
-  <!-- % if is_mobile_device? % -->
+  <% if is_mobile_device? %>
     <%= stylesheet_link_tag "http://code.jquery.com/mobile/latest/jquery.mobile.min.css", :media => "all" %>
     <%= javascript_include_tag "http://code.jquery.com/mobile/latest/jquery.mobile.min.js"%>
-  <!-- %end% -->
+  <%end%>
   
   <%= csrf_meta_tags %>
 </head>
