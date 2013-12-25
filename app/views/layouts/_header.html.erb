@@ -2,7 +2,7 @@
       <div class="top-bar">
         
         <div class="logo">
-          Cloud<sup><i class="icon-cloud"></i></sup>
+          KANDO<sup><i class="icon-cloud"></i></sup>
         </div>
 
         <!-- Icon nav start -->
@@ -53,56 +53,27 @@
           
           <ul class="nav navbar-nav">
             <li class="active">
-              <a href="index.html">Dashboard</a>
+              <%= link_to t('alerts'), '#' %>              
             </li>
-            <li>
-              <a href="graphs.html">Graphs</a>
+            <li class="active">
+              <%= link_to t('letters'), '#' %>              
             </li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">UI elements <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a href="buttons.html">Buttons</a></li>
-                <li><a href="panels.html">Panels &amp; List Groups</a></li>
-                <li><a href="notifications.html">Notifications</a></li>
-                <li><a href="typography.html">Typography</a></li>
-                <li class="divider"></li>
-                <li><a href="grid.html">Grid</a></li>
-                <li class="divider"></li>
-                <li><a href="ui-elements.html">More UI Elements...</a></li>
-              </ul>
+            <li class="active">
+              <%= link_to t('factories'), factories_path %>              
             </li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Forms <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a href="forms.html">Form Elements</a></li>
-                <li><a href="wizards.html">Form Wizards</a></li>
-              </ul>
+            <li class="active">
+              <%= link_to t('working_days'), '#' %>              
             </li>
-            <li>
-              <a href="tables.html">Tables</a>
+            <li class="active">
+              <%= link_to t('yearly_schedule'), '#' %>              
             </li>
-            <li>
-              <a href="gallery.html">Gallery</a>
-            </li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Bonus Pages <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                
-                <li><a href="invoice.html">Invoice</a></li>
-                <li><a href="calendar.html">Calendar</a></li>
-                <li class="divider"></li>
-                <li><a href="login.html">Login</a></li>
-                <li class="divider"></li>
-                <li><a href="error.html">404</a></li>
-                <li><a href="blankpage.html">Blank Page</a></li>
-              </ul>
-            </li>
+
           </ul>
           
           <!-- Mini navigation start -->
           <ul class="nav navbar-nav navbar-right hidden-sm hidden-xs">
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-user"></i> Sandy <b class="caret"></b></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-user"></i> זהר שיינין <b class="caret"></b></a>
               <ul class="dropdown-menu">
                 <li><a href="#">My Account</a></li>
                 <li><a href="calendar.html">My Calendar</a></li>
@@ -129,43 +100,7 @@
             </ul>
           </div>
 
-          <div class="col-md-6 col-sm-6 col-xs-6">
-            
-            <!-- Mini Nav Right Start -->
-            <ul id="page-settings">
-
-              <li id="reportrange" >
-                <i class="icon-calendar"></i>
-                <span></span> <b class="caret"></b>
-              </li>
-
-              <li>
-                <i class="icon-cog"></i>
-              </li>
-            </ul>
-            <!-- Mini Nav Right End -->
-
-            <!-- Stats Start -->
-            <ul class="stats hidden-sm hidden-xs">
-              <li>
-                <span id="orders" class="graph"></span>
-                <div class="details">
-                  <span class="big">2,591</span>
-                  <span class="small">Orders</span>
-                </div>
-              </li>
-              <li>
-                <span id="currentBalance" class="graph"></span>
-                <div class="details">
-                  <span class="big">$7,345</span>
-                  <span class="small">Balance</span>
-                </div>
-              </li>
-            </ul>
-            <!-- Stats End -->
-
-          </div>
-        </div>
+          
       </div>
       <!-- Page title end -->
-      
+

@@ -1,18 +1,60 @@
-<h1>Listing factories</h1>
 
-<table>
-  <thead>
-    <tr>
+
+
+    <div class="row">
+        <div class="col-md-12 col-xs-12">
+          <div class="panel panel-default">
+            <div class="panel-heading clearfix">
+              <i class="icon-calendar"></i>
+              <div style= "flow: left">
+              <div>
+                <h3 class="panel-title">מפעלים בתאגיד פלגי שרון</h3> 
+              </div>
+              <div>
+                <br>
+                <h6>(<%= @factories.length %> תוצאות)</h6>
+              </div>
+
+            </div>
+            </div>
+            <div class="panel-sub-heading">
+              
+            </div>
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                  <h6>Search</h6>
+                </div>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+      <div class="row">
+                <div class="col-md-12 col-sm-12">
+                  <div class="panel panel-default no-margin">
+                    <div class="panel-body">
+                      <div style="float: right; margin-bottom: 10px; margin-left: 0px">
+             <button type="button" class="btn btn-xs btn-primary" data-original-title="">
+                <%= link_to t('new_factory'), new_factory_path %>
+             </button>
+            </div>
+        <table class="table table-condensed table-striped table-bordered table-hover no-margin">
+                  <thead>
+                    <tr>
       <th>Name</th>
       <th>Corporate</th>
       <th></th>
       <th></th>
       <th></th>
     </tr>
-  </thead>
-
-  <tbody>
-    <% @factories.each do |factory| %>
+                  </thead>
+                  <tbody>
+                    <% @factories.each do |factory| %>
       <tr>
         <td><%= factory.name %></td>
         <td><%= factory.corporate_id %></td>
@@ -21,9 +63,10 @@
         <td><%= link_to 'Destroy', factory, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
-  </tbody>
-</table>
+                  </tbody>
+                </table>
+         
+    
 
 <br>
 
-<%= link_to 'New Factory', new_factory_path %>

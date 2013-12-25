@@ -39,3 +39,10 @@ he:
     create: "צור %{model}"
     update: "עדכן %{model}"
     submit: "שמור %{model}"
+
+  factories: "מפעלים"
+  alerts: "יומן ארועים"
+  letters: "סגירת דיגומים - מכתבים"
+  yearly_schedule: "תיאום שנתי"
+  working_days: "תיאום ימי עבודה"
+  new_factory: "הוסף מפעל חדש"

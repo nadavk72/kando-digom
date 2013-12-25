@@ -11,7 +11,7 @@ Kando::Application.routes.draw do
   root :to => "digoms#index"
   match '/index.html', :to => "digoms#index", via: 'get'
 
-#  get '/:locale' => 'digoms#index'
+  get '/:locale' => 'application#home'
 
   get 'home', :to => 'application#home'
   

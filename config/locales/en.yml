@@ -20,6 +20,7 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+
   digoms_list: "Sampling List"
   hello: "Hello world"
   date:
@@ -51,9 +52,14 @@ en:
   edit: Edit
   delete: Delete
   add: Add
+  factories: Factories
+  alerts: Alerts
+  letters: Letters
+  yearly_schedule: Yearly Schedule
+  working_days: Working Days
+  new_factory: Add Factory
  
 
   activerecord:
     models:
       digom: Sampling
-
