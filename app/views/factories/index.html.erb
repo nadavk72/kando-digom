@@ -46,21 +46,37 @@
         <table class="table table-condensed table-striped table-bordered table-hover no-margin">
                   <thead>
                     <tr>
-      <th>Name</th>
-      <th>Corporate</th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th>שם מפעל</th>
+      <th>מס' צרכן</th>
+      <th>כתובת</th>
+      <th>עיר</th>
+      <th>סקטור</th>
+      <th>מס' פיסי</th>
+      <th>מט"ש</th>
+      <th>הסדר</th>
+      <th>ספק מים</th>
+      <th>פעילות</th>
+      <th>ערוך</th>
+      <th>מחק</th>
+
     </tr>
                   </thead>
                   <tbody>
                     <% @factories.each do |factory| %>
       <tr>
-        <td><%= factory.name %></td>
-        <td><%= factory.corporate_id %></td>
-        <td><%= link_to 'Show', factory %></td>
-        <td><%= link_to 'Edit', edit_factory_path(factory) %></td>
-        <td><%= link_to 'Destroy', factory, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to factory.name , factory %></td>
+        <td><%= factory.clientNumber %></td>
+        <td><%= factory.address %></td>
+        <td><%= City.find(factory.cityId).name %></td>
+        <td><%= Sector.find(factory.sectorId).name %></td>
+        <td><%= factory.physicalNumber %></td>
+        <td><%= SewageFarm.find(factory.sewageFarmId).name %></td>
+        <td><%= factory.arrangement ? "V" : "" %></td>
+        <td><%= WaterSupplier.find(factory.waterSupplierId).name %></td>
+        <td><%= factory.isActive ? "פעיל" : "לא פעיל" %></td>
+        <td><span class="label label label-info"><%= link_to 'ערוך', edit_factory_path(factory) %></span></td>
+        <td><span class="label label label-danger"><%= link_to 'מחק', factory, method: :delete, data: { confirm: 'Are you sure?' } %></span></td>
+        <td></td>
       </tr>
     <% end %>
                   </tbody>

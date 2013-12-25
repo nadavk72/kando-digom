@@ -1,4 +1,12 @@
 Kando::Application.routes.draw do
+  resources :water_suppliers
+
+  resources :sewage_farms
+
+  resources :cities
+
+  resources :sectors
+
   resources :factories
   resources :corporates
   resources :digoms

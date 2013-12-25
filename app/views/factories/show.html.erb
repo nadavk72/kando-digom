@@ -10,5 +10,49 @@
   <%=  Corporate.find(@factory.corporate_id).name %>
 </p>
 
+<p>
+  <strong>cityId:</strong>
+  <%=  City.find(@factory.cityId).name %>
+</p>
+
+<p>
+  <strong>address:</strong>
+  <%= @factory.address %>
+</p>
+
+
+<p>
+  <strong>sectorId:</strong>
+  <%=  Sector.find(@factory.sectorId).name %>
+</p>
+
+
+<p>
+  <strong>sewageFarmId:</strong>
+  <%=  SewageFarm.find(@factory.sewageFarmId).name %>
+</p>
+
+
+<p>
+  <strong>waterSupplierId:</strong>
+  <%=  WaterSupplier.find(@factory.waterSupplierId).name %>
+</p>
+
+<p>
+  <strong>clientNumber</strong>
+  <%= @factory.clientNumber %>
+</p>
+
+<p>
+  <strong>physicalNumber:</strong>
+  <%= @factory.physicalNumber %>
+</p>
+
+
+<p>
+  <strong>isActive:</strong>
+  <%= @factory.isActive %>
+</p>
+
 <%= link_to 'Edit', edit_factory_path(@factory) %> |
 <%= link_to 'Back', factories_path %>

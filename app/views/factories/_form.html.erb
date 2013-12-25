@@ -16,9 +16,50 @@
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :corporate_id %><br>
-    <%=  select(:factory, :corporate_id, Corporate.find(:all, :order=>:name).collect{ |c| [c.name,c.id]} , {}, {:"data-native-menu" => "false"}) %>
+    <%= f.label :cityId %><br>
+    <%=  select(:factory, :cityId, City.find(:all, :order=>:name).collect{ |c| [c.name,c.id]} , {}, {:"data-native-menu" => "false"}) %>
   </div>
+
+  <div class="field">
+    <%= f.label :address %><br>
+    <%= f.text_field :address %>
+  </div>
+
+  <div class="field">
+    <%= f.label :sectorId %><br>
+    <%=  select(:factory, :sectorId, Sector.find(:all, :order=>:name).collect{ |c| [c.name,c.id]} , {}, {:"data-native-menu" => "false"}) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :sewageFarmId %><br>
+    <%=  select(:factory, :sewageFarmId, SewageFarm.find(:all, :order=>:name).collect{ |c| [c.name,c.id]} , {}, {:"data-native-menu" => "false"}) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :waterSupplierId %><br>
+    <%=  select(:factory, :waterSupplierId, WaterSupplier.find(:all, :order=>:name).collect{ |c| [c.name,c.id]} , {}, {:"data-native-menu" => "false"}) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :clientNumber %><br>
+    <%= f.text_field :clientNumber %>
+  </div>
+
+  <div class="field">
+    <%= f.label :physicalNumber %><br>
+    <%= f.text_field :physicalNumber %>
+  </div>
+
+  <div class="field">
+    <%= f.label :arrangement %><br>
+    <%= f.check_box :arrangement %>
+  </div>
+
+  <div class="field">
+    <%= f.label :isActive %><br>
+    <%= f.check_box :isActive %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

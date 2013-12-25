@@ -25,6 +25,7 @@ class FactoriesController < ApplicationController
   # POST /factories.json
   def create
     @factory = Factory.new(factory_params)
+    @factory.corporate_id = 1
 
     respond_to do |format|
       if @factory.save
@@ -69,6 +70,6 @@ class FactoriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def factory_params
-      params.require(:factory).permit(:name, :corporate_id)
+      params.require(:factory).permit(:name, :corporate_id, :clientNumber, :address, :cityId, :sectorId, :physicalNumber, :sewageFarmId, :arrangement, :waterSupplierId, :isActive)
     end
 end

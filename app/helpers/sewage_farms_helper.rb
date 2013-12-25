@@ -1,0 +1,2 @@
+module SewageFarmsHelper
+end

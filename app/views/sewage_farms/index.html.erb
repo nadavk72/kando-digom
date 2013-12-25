@@ -1,0 +1,27 @@
+<h1>Listing sewage_farms</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sewage_farms.each do |sewage_farm| %>
+      <tr>
+        <td><%= sewage_farm.name %></td>
+        <td><%= link_to 'Show', sewage_farm %></td>
+        <td><%= link_to 'Edit', edit_sewage_farm_path(sewage_farm) %></td>
+        <td><%= link_to 'Destroy', sewage_farm, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Sewage farm', new_sewage_farm_path %>

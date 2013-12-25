@@ -11,7 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131221162716) do
+ActiveRecord::Schema.define(version: 20131225211000) do
+
+  create_table "cities", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "corporates", force: true do |t|
     t.string   "name"
@@ -44,6 +50,33 @@ ActiveRecord::Schema.define(version: 20131221162716) do
   create_table "factories", force: true do |t|
     t.string   "name"
     t.integer  "corporate_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "clientNumber"
+    t.string   "address"
+    t.integer  "cityId"
+    t.integer  "sectorId"
+    t.string   "physicalNumber"
+    t.integer  "sewageFarmId"
+    t.boolean  "arrangement"
+    t.integer  "waterSupplierId"
+    t.boolean  "isActive"
+  end
+
+  create_table "sectors", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "sewage_farms", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "water_suppliers", force: true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
