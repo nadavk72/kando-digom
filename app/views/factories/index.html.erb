@@ -14,20 +14,6 @@
                 <br>
                 <h6>(<%= @factories.length %> תוצאות)</h6>
               </div>
-
-            </div>
-            </div>
-            <div class="panel-sub-heading">
-              
-            </div>
-            <div class="panel-body">
-              <div class="row">
-                <div class="col-md-6 col-sm-6 col-xs-12">
-                  <h6>Search</h6>
-                </div>
-                <div class="col-md-6 col-sm-6 col-xs-12">
-                </div>
-              </div>
             </div>
           </div>
         </div>
@@ -35,54 +21,73 @@
 
       
       <div class="row">
-                <div class="col-md-12 col-sm-12">
-                  <div class="panel panel-default no-margin">
-                    <div class="panel-body">
-                      <div style="float: right; margin-bottom: 10px; margin-left: 0px">
-             <button type="button" class="btn btn-xs btn-primary" data-original-title="">
-                <%= link_to t('new_factory'), new_factory_path %>
-             </button>
-            </div>
-        <table class="table table-condensed table-striped table-bordered table-hover no-margin">
-                  <thead>
+        <div class="col-md-12 col-sm-12">
+          <div class="panel panel-default no-margin">
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-md-11 col-sm-11">
+                  <div class="col-md-2 col-sm-2">
+                    <ul style="list-style-type: none;">
+                    <li><label class="radio-inline"><input type="radio" name="optionsRadios" id="optionsRadiosFactory" value="factory" checked="">שם מפעל</label></li>
+                    <li><label class="radio-inline"><input type="radio" name="optionsRadios" id="optionsRadiosClientId" value="clientId" checked="">מס' צרכן</label></li>
+                    <li><label class="radio-inline"><input type="radio" name="optionsRadios" id="optionsRadiosphysicalNumber" value="physicalNumber" checked="">מס' פיסי</label></li>
+                  </ul>
+                  </div>
+                  <div class="col-md-9 col-sm-9">
+                    <div>
+                      <input class="col-md-8 col-sm-8" type="text"  placeholder="Search here">
+
+                      <button type="button" class="btn btn-xs btn-primary" data-original-title="" style="margin-left: 5px">מצא</button>
+                        
+                    </div>
+                  </div>
+
+
+                  
+                </div>
+                <div  class="col-md-1 col-sm-1">
+                  <div style="float: right; margin-bottom: 10px; margin-left: 0px">
+                    <button type="button" class="btn btn-xs btn-primary" data-original-title="">
+                      <%= link_to t('new_factory'), new_factory_path %>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <table class="table table-condensed table-striped table-bordered table-hover no-margin">
+                <thead>
+                  <tr>
+                    <th>שם מפעל</th>
+                    <th>מס' צרכן</th>
+                    <th>כתובת</th>
+                    <th>עיר</th>
+                    <th>סקטור</th>
+                    <th>מס' פיסי</th>
+                    <th>מט"ש</th>
+                    <th>הסדר</th>
+                    <th>ספק מים</th>
+                    <th>פעילות</th>
+                    <th>ערוך</th>
+                    <th>מחק</th>
+                 </tr>
+                </thead>
+                <tbody>
+                  <% @factories.each do |factory| %>
                     <tr>
-      <th>שם מפעל</th>
-      <th>מס' צרכן</th>
-      <th>כתובת</th>
-      <th>עיר</th>
-      <th>סקטור</th>
-      <th>מס' פיסי</th>
-      <th>מט"ש</th>
-      <th>הסדר</th>
-      <th>ספק מים</th>
-      <th>פעילות</th>
-      <th>ערוך</th>
-      <th>מחק</th>
-
-    </tr>
-                  </thead>
-                  <tbody>
-                    <% @factories.each do |factory| %>
-      <tr>
-        <td><%= link_to factory.name , factory %></td>
-        <td><%= factory.clientNumber %></td>
-        <td><%= factory.address %></td>
-        <td><%= City.find(factory.cityId).name %></td>
-        <td><%= Sector.find(factory.sectorId).name %></td>
-        <td><%= factory.physicalNumber %></td>
-        <td><%= SewageFarm.find(factory.sewageFarmId).name %></td>
-        <td><%= factory.arrangement ? "V" : "" %></td>
-        <td><%= WaterSupplier.find(factory.waterSupplierId).name %></td>
-        <td><%= factory.isActive ? "פעיל" : "לא פעיל" %></td>
-        <td><span class="label label label-info"><%= link_to 'ערוך', edit_factory_path(factory) %></span></td>
-        <td><span class="label label label-danger"><%= link_to 'מחק', factory, method: :delete, data: { confirm: 'Are you sure?' } %></span></td>
-        <td></td>
-      </tr>
-    <% end %>
-                  </tbody>
-                </table>
-         
-    
-
-<br>
+                      <td><%= link_to factory.name , factory %></td>
+                      <td><%= factory.clientNumber %></td>
+                      <td><%= factory.address %></td>
+                      <td><%= City.find(factory.cityId).name %></td>
+                      <td><%= Sector.find(factory.sectorId).name %></td>
+                      <td><%= factory.physicalNumber %></td>
+                      <td><%= SewageFarm.find(factory.sewageFarmId).name %></td>
+                      <td><%= factory.arrangement ? "V" : "" %></td>
+                      <td><%= WaterSupplier.find(factory.waterSupplierId).name %></td>
+                      <td><%= factory.isActive ? "פעיל" : "לא פעיל" %></td>
+                      <td><span class="label label label-info"><%= link_to 'ערוך', edit_factory_path(factory) %></span></td>
+                      <td><span class="label label label-danger"><%= link_to 'מחק', factory, method: :delete, data: { confirm: 'Are you sure?' } %></span></td>
+                    </tr>
+                  <% end %>
+                </tbody>
+              </table>
+              <br>
 

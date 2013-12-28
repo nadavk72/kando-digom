@@ -12,5 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require_dataTables/jquery.dataTables
 //= require turbolinks
 //= require_tree .
+
+jQuery ->
+        $('#aaa').dataTable()

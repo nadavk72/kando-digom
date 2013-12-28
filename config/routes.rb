@@ -21,7 +21,7 @@ Kando::Application.routes.draw do
 
   get '/:locale' => 'application#home'
 
-  get 'home', :to => 'application#home'
+  #get 'home', :to => 'application#home'
   
 
  
