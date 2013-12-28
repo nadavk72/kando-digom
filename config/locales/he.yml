@@ -29,6 +29,10 @@ he:
     models:
       digom: "דיגום"
 
+  activerecord:
+    models:
+      factory: "מפעל"
+
   helpers:
    submit:
     create: "צור %{model}"

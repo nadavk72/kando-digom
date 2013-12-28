@@ -63,3 +63,7 @@ en:
   activerecord:
     models:
       digom: Sampling
+
+  activerecord:
+    models:
+      factory: Factory

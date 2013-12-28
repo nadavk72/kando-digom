@@ -1,0 +1,148 @@
+
+<%= form_for(@factory) do |f| %>
+  <% if @factory.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@factory.errors.count, "error") %> prohibited this factory from being saved:</h2>
+
+      <ul>
+      <% @factory.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<div class="col-md-12 col-sm-12 col-xs-12">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <ul id="myTab2" class="nav nav-tabs nav-justified">
+                <li class="active">
+                  <a href="#general1" data-toggle="tab" data-original-title="">כללי</a>
+                </li>
+                <li class>
+                  <a href="#contacts1" data-toggle="tab" data-original-title="">אנשי קשר</a>
+                </li>
+                <li class>
+                  <a href="#parameters1" data-toggle="tab" data-original-title="">פרמטרים</a>
+                </li>
+                <li class>
+                  <a href="#arrangement1" data-toggle="tab" data-original-title="">הסדרים</a>
+                </li>
+                <li class>
+                  <a href="#pits1" data-toggle="tab" data-original-title="">שוחות</a>
+                </li>
+                <li class>
+                  <a href="#waterCounters1" data-toggle="tab" data-original-title="">מוני מים</a>
+                </li>
+                <li class>
+                  <a href="#map1" data-toggle="tab" data-original-title="">מפה</a>
+                </li>
+                <li class>
+                  <a href="#gallary1" data-toggle="tab" data-original-title="">גלריה</a>
+                </li>
+
+              </ul>
+              <br>
+              <div id="myTabContent1" class="tab-content">
+                <div class="tab-pane fade active in" id="general1">
+                  <div class="row">
+                    <div class="col-md-12 col-sm-12">
+                      <h3></h3>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12 col-sm-12">
+                      <div class="col-md-3 col-sm-3">
+                      <div class="panel panel-default">
+            
+            <div class="panel-body">
+                <div class="form-group">
+                  <%= f.label "שם מפעל" %>
+                  <%= f.text_field :name, {:class => 'form-control'} %>
+                </div>
+                <div class="form-group">
+                  <%= f.label "מס צרכן" %>
+                  <%= f.text_field :clientNumber, {:class => 'form-control'} %>
+                </div>
+            </div>
+          </div>
+                      </div>
+                      <div class="col-md-5 col-sm-5">
+                        <div class="panel panel-default">
+                          <div class="panel-heading clearfix">
+                            <i class="icon-calendar"></i>
+                            <h3 class="panel-title">נתונים כלליים</h3>
+                          </div>
+                          <div class="panel-body">
+                            <div class="form-group">
+                                <%= f.label "סקטור" %>
+                                <%=  select(:factory, :sectorId, Sector.find(:all, :order=>:name).collect{ |c| [c.name,c.id]} , {}, {:class => "form-control", :"data-native-menu" => "false"}) %>
+                              </div>
+                              <div class="form-group">
+                                <%= f.label 'מט"ש' %>
+                                <%=  select(:factory, :sewageFarmId, SewageFarm.find(:all, :order=>:name).collect{ |c| [c.name,c.id]} , {}, {:class => "form-control", :"data-native-menu" => "false"}) %>
+                              </div>
+                              <div class="form-group">
+                                <%= f.label "ספק מים" %>
+                                <%=  select(:factory, :waterSupplierId, WaterSupplier.find(:all, :order=>:name).collect{ |c| [c.name,c.id]} , {}, {:class => "form-control", :"data-native-menu" => "false"}) %>
+                              </div>
+                              <div class="form-group">
+                                <%= f.label "סטטוס" %>  
+                                <%= f.check_box :isActive %>
+                              </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-4 col-sm-4">
+                        <div class="panel panel-default">
+                          <div class="panel-heading clearfix">
+                            <i class="icon-calendar"></i>
+                            <h3 class="panel-title">כתובות</h3>
+                          </div>
+                          <div class="panel-body">
+                              <div class="form-group">
+                                <%= f.label "כתובת" %>
+                                <%= f.text_area :address, {:class => "form-control", :class => 'form-control'} %>
+                              </div>
+                              <div class="form-group">
+                                <%= f.label "עיר" %>
+                                <%=  select(:factory, :cityId, City.find(:all, :order=>:name).collect{ |c| [c.name,c.id]} , {}, {:class => "form-control", :"data-native-menu" => "false"}) %>
+                              </div>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+                <div class="tab-pane fade" id="contacts1">
+                  <p class="no-margin">contacts1</p>
+                </div>
+                <div class="tab-pane fade" id="parameters1">
+                  <p class="no-margin">parameters1</p>
+                </div>
+                <div class="tab-pane fade" id="arrangement1">
+                  <p class="no-margin">arrangement1</p>
+                </div>
+                <div class="tab-pane fade" id="pits1">
+                  <p class="no-margin">pits1</p>
+                </div>
+                <div class="tab-pane fade" id="waterCounters1">
+                  <p class="no-margin">waterCounters1</p>
+                </div>
+                <div class="tab-pane fade" id="map1">
+                  <p class="no-margin">map1</p>
+                </div>
+                <div class="tab-pane fade" id="gallary1">
+                  <p class="no-margin">gallary1</p>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+<div  class="col-md-1 col-sm-1">
+  <div style="float: right; margin-bottom: 10px; margin-left: 0px">
+    <%= f.submit :class => 'btn btn-xs btn-primary' %>
+  </div>
+</div>        
+<% end %>
