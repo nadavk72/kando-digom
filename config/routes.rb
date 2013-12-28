@@ -16,6 +16,10 @@ Kando::Application.routes.draw do
     resources :digoms
   end
 
+  scope "(:locale)", locale: /en|he/ do
+    resources :factories
+  end
+
   root :to => "digoms#index"
   match '/index.html', :to => "digoms#index", via: 'get'
 
