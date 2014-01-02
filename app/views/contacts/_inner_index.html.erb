@@ -1,0 +1,9 @@
+<div class="span8">
+	<% if @factory.contacts.any? %>
+	  <h3>Contancts (<%= @factory.contacts.count %>)</h3>
+	    <ol class="contacts">
+	      <%= render @contacts %>
+	    </ol>
+	  <%= will_paginate @contacts %>
+	<% end %>
+</div>

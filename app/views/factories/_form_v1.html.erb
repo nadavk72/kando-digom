@@ -44,78 +44,10 @@
               <br>
               <div id="myTabContent1" class="tab-content">
                 <div class="tab-pane fade active in" id="general1">
-                  <div class="row">
-                    <div class="col-md-12 col-sm-12">
-                      <h3></h3>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-12 col-sm-12">
-                      <div class="col-md-3 col-sm-3">
-                      <div class="panel panel-default">
-            
-            <div class="panel-body">
-                <div class="form-group">
-                  <%= f.label "שם מפעל" %>
-                  <%= f.text_field :name, {:class => 'form-control'} %>
-                </div>
-                <div class="form-group">
-                  <%= f.label "מס צרכן" %>
-                  <%= f.text_field :clientNumber, {:class => 'form-control'} %>
-                </div>
-            </div>
-          </div>
-                      </div>
-                      <div class="col-md-5 col-sm-5">
-                        <div class="panel panel-default">
-                          <div class="panel-heading clearfix">
-                            <i class="icon-calendar"></i>
-                            <h3 class="panel-title">נתונים כלליים</h3>
-                          </div>
-                          <div class="panel-body">
-                            <div class="form-group">
-                                <%= f.label "סקטור" %>
-                                <%=  select(:factory, :sectorId, Sector.find(:all, :order=>:name).collect{ |c| [c.name,c.id]} , {}, {:class => "form-control", :"data-native-menu" => "false"}) %>
-                              </div>
-                              <div class="form-group">
-                                <%= f.label 'מט"ש' %>
-                                <%=  select(:factory, :sewageFarmId, SewageFarm.find(:all, :order=>:name).collect{ |c| [c.name,c.id]} , {}, {:class => "form-control", :"data-native-menu" => "false"}) %>
-                              </div>
-                              <div class="form-group">
-                                <%= f.label "ספק מים" %>
-                                <%=  select(:factory, :waterSupplierId, WaterSupplier.find(:all, :order=>:name).collect{ |c| [c.name,c.id]} , {}, {:class => "form-control", :"data-native-menu" => "false"}) %>
-                              </div>
-                              <div class="form-group">
-                                <%= f.label "סטטוס" %>  
-                                <%= f.check_box :isActive %>
-                              </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-md-4 col-sm-4">
-                        <div class="panel panel-default">
-                          <div class="panel-heading clearfix">
-                            <i class="icon-calendar"></i>
-                            <h3 class="panel-title">כתובות</h3>
-                          </div>
-                          <div class="panel-body">
-                              <div class="form-group">
-                                <%= f.label "כתובת" %>
-                                <%= f.text_area :address, {:class => "form-control", :class => 'form-control'} %>
-                              </div>
-                              <div class="form-group">
-                                <%= f.label "עיר" %>
-                                <%=  select(:factory, :cityId, City.find(:all, :order=>:name).collect{ |c| [c.name,c.id]} , {}, {:class => "form-control", :"data-native-menu" => "false"}) %>
-                              </div>
-                          </div>
-                        </div>
-                      </div>
-
-                    </div>
-                  </div>
+                  <%= render :partial => "factory_general", :locals=>{:f=>f} %>
                 </div>
                 <div class="tab-pane fade" id="contacts1">
-                  <p class="no-margin">contacts1</p>
+                  <%= render 'factory_contacts', f: f %>
                 </div>
                 <div class="tab-pane fade" id="parameters1">
                   <p class="no-margin">parameters1</p>

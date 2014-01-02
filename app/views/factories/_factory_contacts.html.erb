@@ -1,0 +1,26 @@
+<table class="table table-condensed table-striped table-bordered table-hover no-margin">
+	<thead>
+		<tr>
+			<th>שם פרטי</th>
+			<th>שם משפחה</th>
+			<th>תפקיד</th>
+			<th>טלפון</th>
+			<th>שלוחה</th>
+			<th>פקס</th>
+			<th>טלפון נייד</th>
+			<th>דוא"ל</th>
+			<th>להתקשרות...</th>
+			<th>מחק</th>
+		</tr>
+	</thead>
+	<tbody>
+		<%= f.fields_for :contacts do |builder| %>
+    		<%= render 'contact_fields', f: builder %>
+  		<% end %>
+	</tbody>
+</table>  
+
+
+ 
+
+  <%= link_to_add_fields "Add Contact", f, :contacts %>

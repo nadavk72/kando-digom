@@ -66,10 +66,12 @@ class FactoriesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_factory
       @factory = Factory.find(params[:id])
+      @contacts = @factory.contacts.paginate(page: params[:page])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def factory_params
-      params.require(:factory).permit(:name, :corporate_id, :clientNumber, :address, :cityId, :sectorId, :physicalNumber, :sewageFarmId, :arrangement, :waterSupplierId, :isActive)
+        #params.require(:factory).permit(:name, {contacts_attributes: :firstName}, :corporate_id, :clientNumber, :address, :cityId, :sectorId, :physicalNumber, :sewageFarmId, :arrangement, :waterSupplierId, :isActive)
+        params.require(:factory).permit!
     end
 end
