@@ -1,6 +1,8 @@
 class FactoriesController < ApplicationController
   before_action :set_factory, only: [:show, :edit, :update, :destroy]
 
+  include FactoriesHelper
+
   # GET /factories
   # GET /factories.json
   def index
@@ -15,6 +17,8 @@ class FactoriesController < ApplicationController
   # GET /factories/new
   def new
     @factory = Factory.new
+    create_addresses
+
   end
 
   # GET /factories/1/edit
@@ -74,4 +78,16 @@ class FactoriesController < ApplicationController
         #params.require(:factory).permit(:name, {contacts_attributes: :firstName}, :corporate_id, :clientNumber, :address, :cityId, :sectorId, :physicalNumber, :sewageFarmId, :arrangement, :waterSupplierId, :isActive)
         params.require(:factory).permit!
     end
+
+
+    def factoryAddress_params
+        #params.require(:factory).permit(:name, {contacts_attributes: :firstName}, :corporate_id, :clientNumber, :address, :cityId, :sectorId, :physicalNumber, :sewageFarmId, :arrangement, :waterSupplierId, :isActive)
+        params.require(:address).permit!
+    end
+
+    def mailingAddress_params
+        #params.require(:factory).permit(:name, {contacts_attributes: :firstName}, :corporate_id, :clientNumber, :address, :cityId, :sectorId, :physicalNumber, :sewageFarmId, :arrangement, :waterSupplierId, :isActive)
+        params.require(:mailingAddress).permit!
+    end
 end
+

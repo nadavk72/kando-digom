@@ -1,1 +1,1 @@
-json.extract! @factory, :name, :corporate_id, :created_at, :updated_at, :clientNumber, :address, :cityId, :sectorId, :physicalNumber, :sewageFarmId, :arrangement, :waterSupplierId, :isActive
+json.extract! @factory, :factoryAddress, :mailingAddress, :name, :corporate_id, :created_at, :updated_at, :clientNumber, :address, :cityId, :sectorId, :physicalNumber, :sewageFarmId, :arrangement, :waterSupplierId, :isActive

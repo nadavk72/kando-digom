@@ -1,0 +1,16 @@
+	<%= f.label "רחוב" %>
+    <%= f.text_field :street, {:class => "form-control", :class => 'form-control'} %>
+
+    <%= f.label "מס רחוב" %>
+    <%= f.text_field :streetNumber, {:class => "form-control", :class => 'form-control'} %>
+
+	<%= f.label "תא דואר" %>
+    <%= f.text_field :poBox, {:class => "form-control", :class => 'form-control'} %>
+
+	<%= f.label "עיר" %>
+    <%=  select(:address, :city, City.find(:all, :order=>:name).collect{ |c| [c.name,c.id]} , {}, {:class => "form-control", :"data-native-menu" => "false"}) %>
+
+    <%= f.label "מיקוד" %>
+    <%= f.text_field :zip, {:class => "form-control", :class => 'form-control'} %>
+
+    
