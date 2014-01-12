@@ -15,6 +15,13 @@
     <%= f.label :name %><br>
     <%= f.text_field :name %>
   </div>
+
+
+<%=select_tag 'sampling_parameters[]', options_for_select(
+SamplingParameter.all.collect {|c| [ c.name, c.id ] }, 
+@sector.sampling_parameters.map {|j| j.id}), :multiple => true, :class => "multiselect", :size => 10%>
+
+
   <div class="actions">
     <%= f.submit %>
   </div>

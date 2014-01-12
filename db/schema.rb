@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140106225421) do
+ActiveRecord::Schema.define(version: 20140111222429) do
 
   create_table "addresses", force: true do |t|
     t.string   "street"
@@ -90,10 +90,31 @@ ActiveRecord::Schema.define(version: 20140106225421) do
     t.integer  "shipping_address_id"
   end
 
+  add_index "factories", ["corporate_id", "created_at"], name: "index_factories_on_corporate_id_and_created_at"
+
+  create_table "sampling_parameters", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "sampling_parameters_sectors", force: true do |t|
+    t.integer "sampling_parameter_id"
+    t.integer "sector_id"
+  end
+
   create_table "sectors", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "sectors_sampling_parameters", force: true do |t|
+    t.integer "sector_id"
+    t.integer "sampling_parameter_id"
+  end
+
+  create_table "sectors_sampling_parameters_tables", force: true do |t|
   end
 
   create_table "sewage_farms", force: true do |t|

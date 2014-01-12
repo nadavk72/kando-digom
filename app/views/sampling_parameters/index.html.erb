@@ -1,0 +1,27 @@
+<h1>Listing sampling_parameters</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sampling_parameters.each do |sampling_parameter| %>
+      <tr>
+        <td><%= sampling_parameter.name %></td>
+        <td><%= link_to 'Show', sampling_parameter %></td>
+        <td><%= link_to 'Edit', edit_sampling_parameter_path(sampling_parameter) %></td>
+        <td><%= link_to 'Destroy', sampling_parameter, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Sampling parameter', new_sampling_parameter_path %>

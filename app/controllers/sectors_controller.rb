@@ -19,12 +19,23 @@ class SectorsController < ApplicationController
 
   # GET /sectors/1/edit
   def edit
+
   end
 
   # POST /sectors
   # POST /sectors.json
   def create
     @sector = Sector.new(sector_params)
+
+    @sector.sampling_parameters.clear
+    params[:sampling_parameters].each do |param|
+      if !param.empty?
+        @sector.sampling_parameters << SamplingParameter.find(param)
+      end    
+    end
+
+    
+
 
     respond_to do |format|
       if @sector.save
@@ -40,6 +51,15 @@ class SectorsController < ApplicationController
   # PATCH/PUT /sectors/1
   # PATCH/PUT /sectors/1.json
   def update
+
+
+    @sector.sampling_parameters.clear
+    params[:sampling_parameters].each do |param|
+      if !param.empty?
+        @sector.sampling_parameters << SamplingParameter.find(param)
+      end    
+    end
+
     respond_to do |format|
       if @sector.update(sector_params)
         format.html { redirect_to @sector, notice: 'Sector was successfully updated.' }
@@ -69,6 +89,6 @@ class SectorsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def sector_params
-      params.require(:sector).permit(:name)
+      params.require(:sector).permit!
     end
 end

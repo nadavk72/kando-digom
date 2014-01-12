@@ -1,4 +1,6 @@
 Kando::Application.routes.draw do
+  resources :sampling_parameters
+
   resources :water_suppliers
 
   resources :sewage_farms
