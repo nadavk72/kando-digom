@@ -45,6 +45,8 @@ class FactoriesController < ApplicationController
   # PATCH/PUT /factories/1
   # PATCH/PUT /factories/1.json
   def update
+
+
     respond_to do |format|
       if @factory.update(factory_params)
         format.html { redirect_to @factory, notice: 'Factory was successfully updated.' }

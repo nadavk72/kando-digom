@@ -11,13 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140111222429) do
+ActiveRecord::Schema.define(version: 20140112223419) do
 
   create_table "addresses", force: true do |t|
     t.string   "street"
     t.integer  "streetNumber"
     t.string   "poBox"
-    t.integer  "cityId"
+    t.integer  "city_id"
     t.integer  "zip"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -79,7 +79,6 @@ ActiveRecord::Schema.define(version: 20140111222429) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "clientNumber"
-    t.integer  "cityId"
     t.integer  "sectorId"
     t.string   "physicalNumber"
     t.integer  "sewageFarmId"
@@ -107,14 +106,6 @@ ActiveRecord::Schema.define(version: 20140111222429) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
-  end
-
-  create_table "sectors_sampling_parameters", force: true do |t|
-    t.integer "sector_id"
-    t.integer "sampling_parameter_id"
-  end
-
-  create_table "sectors_sampling_parameters_tables", force: true do |t|
   end
 
   create_table "sewage_farms", force: true do |t|

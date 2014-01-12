@@ -44,13 +44,13 @@
               <br>
               <div id="myTabContent1" class="tab-content">
                 <div class="tab-pane fade active in" id="general1">
-                  <%= render :partial => "factory_general", :locals=>{:f=>f} %>
+                  <%= render 'factory_general', f: f %>
                 </div>
                 <div class="tab-pane fade" id="contacts1">
                   <%= render 'factory_contacts', f: f %>
                 </div>
                 <div class="tab-pane fade" id="parameters1">
-                  <p class="no-margin">parameters1</p>
+                  <%= render 'factory_parameters', f: f %>
                 </div>
                 <div class="tab-pane fade" id="arrangement1">
                   <p class="no-margin">arrangement1</p>
