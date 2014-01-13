@@ -73,8 +73,8 @@
                     <tr>
                       <td><%= link_to factory.name , factory %></td>
                       <td><%= factory.clientNumber %></td>
-                      <td>TBD</td>
-                      <td><%= factory.address.street %></td>
+                      <td><%= factory.address.street%></td>
+                      <td><%= factory.address.city.name %></td>
                       <td><%= Sector.find(factory.sectorId).name %></td>
                       <td><%= factory.physicalNumber %></td>
                       <td><%= SewageFarm.find(factory.sewageFarmId).name %></td>

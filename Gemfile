@@ -10,6 +10,7 @@ gem 'bootstrap-will_paginate', '0.0.9'
 gem 'multi-select-rails'
 gem 'simple_form'
 gem 'jquery-turbolinks'
+gem "paperclip-dropbox", ">= 1.1.7"
 
 group :development, :test do
   gem 'sqlite3', '1.3.8'

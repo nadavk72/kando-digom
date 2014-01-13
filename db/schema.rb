@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140112223419) do
+ActiveRecord::Schema.define(version: 20140113215415) do
 
   create_table "addresses", force: true do |t|
     t.string   "street"
@@ -87,9 +87,18 @@ ActiveRecord::Schema.define(version: 20140112223419) do
     t.boolean  "isActive"
     t.integer  "address_id"
     t.integer  "shipping_address_id"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
   end
 
   add_index "factories", ["corporate_id", "created_at"], name: "index_factories_on_corporate_id_and_created_at"
+
+  create_table "factories_sampling_parameters", force: true do |t|
+    t.integer "sampling_parameter_id"
+    t.integer "factory_id"
+  end
 
   create_table "sampling_parameters", force: true do |t|
     t.string   "name"

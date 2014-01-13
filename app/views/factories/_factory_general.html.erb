@@ -17,6 +17,12 @@
               <%= f.label "מס צרכן" %>
               <%= f.text_field :clientNumber, {:class => 'form-control'} %>
             </div>
+            <div>
+               <%= f.label :photo, "Photo" %>
+                <%= f.file_field :photo %>
+                <%= if @factory.photo.exists? then image_tag @factory.photo.url end%>
+
+            </div>
           </div>
         </div>
       </div>

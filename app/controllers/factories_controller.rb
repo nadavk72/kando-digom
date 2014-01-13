@@ -30,6 +30,9 @@ class FactoriesController < ApplicationController
   def create
     @factory = Factory.new(factory_params)
     @factory.corporate_id = 1
+    if @factory.sampling_parameters blank?
+      @factory.sampling_parameters = Sector.find(@factory.sectorId).sampling_parameters
+    end
 
     respond_to do |format|
       if @factory.save
@@ -46,6 +49,12 @@ class FactoriesController < ApplicationController
   # PATCH/PUT /factories/1.json
   def update
 
+    @factory.sampling_parameters.clear
+    params[:sampling_parameters].each do |param|
+      if !param.empty?
+        @factory.sampling_parameters << SamplingParameter.find(param)
+      end    
+    end 
 
     respond_to do |format|
       if @factory.update(factory_params)
