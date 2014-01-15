@@ -1,0 +1,11 @@
+
+<tr>
+	<td><%= f.text_field :name %></td>
+	<td><%= f.collection_select :pit_type_id, PitType.all, :id, :name, {}, {} %></td>
+	<td><%= f.text_field :photo %></td>
+	<td><%= f.text_field :description %></td>
+	<td><%= f.text_field :coordinate %></td>
+	<td><%= f.text_field :scheduled_short_sampling %></td>
+	<td><%= f.text_field :scheduled_complex_sampling %></td>
+	<td><%= f.hidden_field :_destroy %><%= link_to "Remove", '#', class: "remove_fields" %></td>
+</tr>

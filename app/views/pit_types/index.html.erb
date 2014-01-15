@@ -1,0 +1,27 @@
+<h1>Listing pit_types</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pit_types.each do |pit_type| %>
+      <tr>
+        <td><%= pit_type.name %></td>
+        <td><%= link_to 'Show', pit_type %></td>
+        <td><%= link_to 'Edit', edit_pit_type_path(pit_type) %></td>
+        <td><%= link_to 'Destroy', pit_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Pit type', new_pit_type_path %>

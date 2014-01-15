@@ -4,6 +4,7 @@ belongs_to :sector
 belongs_to :sewageFarm
 belongs_to :waterSupplier
 has_many :contacts, as: :contactable
+has_many :pits
 belongs_to :address
 belongs_to :shipping_address, :class_name => "Address"
 has_and_belongs_to_many :sampling_parameters
@@ -13,6 +14,7 @@ has_attached_file :photo,
     :path => "/factories/:id/:style/:basename.:extension"
 accepts_nested_attributes_for :sampling_parameters
 accepts_nested_attributes_for :contacts, allow_destroy: true
+accepts_nested_attributes_for :pits, allow_destroy: true
 accepts_nested_attributes_for :address
 accepts_nested_attributes_for :shipping_address
   default_scope -> { order('created_at DESC') }

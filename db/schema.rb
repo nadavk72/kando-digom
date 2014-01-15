@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140113215415) do
+ActiveRecord::Schema.define(version: 20140115221353) do
 
   create_table "addresses", force: true do |t|
     t.string   "street"
@@ -98,6 +98,25 @@ ActiveRecord::Schema.define(version: 20140113215415) do
   create_table "factories_sampling_parameters", force: true do |t|
     t.integer "sampling_parameter_id"
     t.integer "factory_id"
+  end
+
+  create_table "pit_types", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "pits", force: true do |t|
+    t.string   "name"
+    t.string   "photo"
+    t.string   "description"
+    t.string   "coordinate"
+    t.integer  "scheduled_short_sampling"
+    t.integer  "scheduled_complex_sampling"
+    t.integer  "pit_type_id"
+    t.integer  "factory_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "sampling_parameters", force: true do |t|

@@ -1,4 +1,6 @@
 Kando::Application.routes.draw do
+  resources :pit_types
+
   resources :sampling_parameters
 
   resources :water_suppliers
