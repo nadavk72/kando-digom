@@ -13,7 +13,7 @@
 	</thead>
 	<tbody>
 		<%= f.fields_for :pits do |builder| %>
-    		<%= render 'pit_fields', f: builder %>
+    		<%= render partial: 'pit_fields', locals: { f: builder} %>
   		<% end %>
 	</tbody>
 </table>  

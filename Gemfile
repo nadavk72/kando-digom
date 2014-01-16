@@ -11,6 +11,7 @@ gem 'multi-select-rails'
 gem 'simple_form'
 gem 'jquery-turbolinks'
 gem "paperclip-dropbox", ">= 1.1.7"
+gem 'rmagick', '2.13.2'
 
 group :development, :test do
   gem 'sqlite3', '1.3.8'
