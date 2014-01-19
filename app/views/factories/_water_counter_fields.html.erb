@@ -1,0 +1,17 @@
+
+<tr>
+	<td><%=  f.object.id %></td>
+	<td><%= f.text_field :physical_number %></td>
+	<td>
+        <%= f.file_field :photo %>
+        <%= if f.object.photo.exists? then image_tag f.object.photo.url end%>
+    </td>
+	<td><%= f.text_field :description %></td>
+	<td><%= f.text_field :coordinate %></td>
+	<td><%= f.collection_select :water_counter_type_id, WaterCounterType.all, :id, :name, {}, {} %></td>
+	<td><%= f.collection_select :pit_id, Pit.all, :id, :name, {:include_blank => 'לא נבחר'}, {} %></td>
+	<td><span class="label label label-info"><%= link_to 'צפה', '#' %></span></td>
+	<td><%= f.hidden_field :_destroy %><%= link_to "מחק", '#', class: "remove_fields", :onclick => "$(this).find('input:hidden');
+		$(this).closest('tr').hide();
+		return false;" %></td>
+</tr>

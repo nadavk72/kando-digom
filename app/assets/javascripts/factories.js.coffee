@@ -2,15 +2,14 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-jQuery ->
-	$('form').on 'click', '.remove_fields', (event) ->
-		$(this).find('input:hidden')
-		$(this).closest('tr').hide()
-		event.preventDefault()	
+$(this).on "page:before-change", ->
 
-jQuery ->
-	$('form').on 'click', '.add_fields', (event) ->
+	$(".add_fields").onclick ->
 		time = new Date().getTime()
 		regexp = new RegExp($(this).data('id'), 'g')
 		$('tbody').append($(this).data('fields').replace(regexp, time))
-		event.preventDefault()
+
+	$(".remove_fields").onclick ->
+		$(this).find('input:hidden')
+		$(this).closest('tr').hide()
+

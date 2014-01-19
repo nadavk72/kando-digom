@@ -1,0 +1,27 @@
+<h1>Listing water_counter_types</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @water_counter_types.each do |water_counter_type| %>
+      <tr>
+        <td><%= water_counter_type.name %></td>
+        <td><%= link_to 'Show', water_counter_type %></td>
+        <td><%= link_to 'Edit', edit_water_counter_type_path(water_counter_type) %></td>
+        <td><%= link_to 'Destroy', water_counter_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Water counter type', new_water_counter_type_path %>

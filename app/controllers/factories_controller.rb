@@ -1,4 +1,5 @@
-class FactoriesController < ApplicationController
+  class FactoriesController < ApplicationController
+  helper_method :sort_column, :sort_direction
   before_action :set_factory, only: [:show, :edit, :update, :destroy]
 
   include FactoriesHelper
@@ -6,7 +7,15 @@ class FactoriesController < ApplicationController
   # GET /factories
   # GET /factories.json
   def index
-    @factories = Factory.all
+    @factories = Factory.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => 20, :page => params[:page])
+  end
+
+  def sort_column
+    Factory.column_names.include?(params[:sort]) ? params[:sort] : "name"
+  end
+  
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
   end
 
   # GET /factories/1
@@ -50,11 +59,13 @@ class FactoriesController < ApplicationController
   def update
 
     @factory.sampling_parameters.clear
-    params[:sampling_parameters].each do |param|
-      if !param.empty?
-        @factory.sampling_parameters << SamplingParameter.find(param)
-      end    
-    end 
+    if !params[:sampling_parameters].blank? then
+      params[:sampling_parameters].each do |param|
+        if !param.empty?
+          @factory.sampling_parameters << SamplingParameter.find(param)
+        end    
+      end     
+    end
 
     respond_to do |format|
       if @factory.update(factory_params)

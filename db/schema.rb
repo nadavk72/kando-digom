@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140115235151) do
+ActiveRecord::Schema.define(version: 20140119210936) do
 
   create_table "addresses", force: true do |t|
     t.string   "street"
@@ -143,6 +143,28 @@ ActiveRecord::Schema.define(version: 20140115235151) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "water_counter_types", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "water_counters", force: true do |t|
+    t.integer  "water_counter_type_id"
+    t.string   "physical_number"
+    t.string   "description"
+    t.string   "coordinate"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.string   "photo_updated_at"
+    t.string   "datetime"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "factory_id"
+    t.integer  "pit_id"
   end
 
   create_table "water_suppliers", force: true do |t|

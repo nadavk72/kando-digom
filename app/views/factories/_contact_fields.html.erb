@@ -9,5 +9,7 @@
 	<td><%= f.text_field :cellPhone %></td>
 	<td><%= f.text_field :email %></td>
 	<td><%= f.text_field :responsible %></td>
-	<td><%= f.hidden_field :_destroy %><%= link_to "Remove", '#', class: "remove_fields" %></td>
+	<td><%= f.hidden_field :_destroy %><%= link_to "Remove", '#', class: "remove_fields", :onclick => "$(this).find('input:hidden');
+		$(this).closest('tr').hide();
+		return false;" %></td>
 </tr>

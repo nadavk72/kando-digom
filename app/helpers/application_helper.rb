@@ -10,5 +10,12 @@ module ApplicationHelper
 	    link_to(name, '#', class: "add_fields", :onclick => "time = new Date().getTime();
 		regexp = new RegExp($(this).data('id'), 'g');
 		$('tbody').append($(this).data('fields').replace(regexp, time)); return false;" , data: {id: id, fields: fields.gsub("\n", "")})
-  end
+  	end
+
+	def sortable(title = nil, column)
+  		title ||= column.titleize
+  		css_class = column == sort_column ? "current #{sort_direction}" : nil
+  		direction = column == sort_column && sort_direction == "asc" ? "desc" : "asc"
+  		link_to title, params.merge(:sort => column, :direction => direction, :page => nil), {:class => css_class}
+	end
 end

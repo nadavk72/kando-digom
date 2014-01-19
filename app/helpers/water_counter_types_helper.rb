@@ -1,0 +1,2 @@
+module WaterCounterTypesHelper
+end

@@ -16,5 +16,4 @@
 //= require turbolinks
 //= require_tree .
 
-jQuery ->
-        $('#aaa').dataTable()
+

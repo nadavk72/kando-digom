@@ -1,0 +1,1 @@
+$("#factories_table").html("<%= escape_javascript(render('factories_table')) %>");

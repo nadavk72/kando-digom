@@ -1,0 +1,37 @@
+<table class="table table-condensed table-striped table-bordered table-hover no-margin pretty">
+  <thead>
+    <tr>
+      <th><%= sortable "שם מפעל", "name" %></th>
+      <th><%= sortable "מס' צרכן", "clientNumber" %></th>
+      <th><%= sortable "כתובת", "street" %></th>
+      <th><%= sortable "עיר", "city" %></th>
+      <th><%= sortable "סקטור", "sector" %></th>
+      <th><%= sortable "מס' פיסי", "physicalNumber" %></th>
+      <th><%= sortable "מט\"ש", "sewageFarm" %></th>
+      <th><%= sortable "הסדר", "arrangement" %></th>
+      <th><%= sortable "ספק מים", "waterSupplier" %></th>
+      <th><%= sortable "פעילות", "isActive" %></th>
+      <th>ערוך</th>
+      <th>מחק</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @factories.each do |factory| %>
+    <tr>
+      <td><%= link_to factory.name , factory %></td>
+      <td><%= factory.clientNumber %></td>
+      <td><%= factory.address.street%></td>
+      <td><%= factory.address.city.name %></td>
+      <td><%= Sector.find(factory.sectorId).name %></td>
+      <td><%= factory.physicalNumber %></td>
+      <td><%= SewageFarm.find(factory.sewageFarmId).name %></td>
+      <td><%= factory.arrangement ? "V" : "" %></td>
+      <td><%= WaterSupplier.find(factory.waterSupplierId).name %></td>
+      <td><%= factory.isActive ? "פעיל" : "לא פעיל" %></td>
+      <td><span class="label label label-info"><%= link_to 'ערוך', edit_factory_path(factory) %></span></td>
+      <td><span class="label label label-danger"><%= link_to 'מחק', factory, method: :delete, data: { confirm: 'Are you sure?' } %></span></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= will_paginate @factories %>

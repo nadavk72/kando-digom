@@ -15,4 +15,12 @@
  
  */
 
- 
+
+
+.pretty th .asc {
+  background-image: url(/img/sorting_asc.png);
+}
+
+.pretty th .desc {
+  background-image: url(/img/sorting_desc.png);
+}

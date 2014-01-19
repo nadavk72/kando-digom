@@ -1,0 +1,25 @@
+<table class="table table-condensed table-striped table-bordered table-hover no-margin">
+	<thead>
+		<tr>
+			<th># מונה</th>
+			<th># פיסי</th>
+			<th>תמונה</th>
+			<th>תיאור כללי</th>
+			<th>נ"צ</th>
+			<th>סוג מונה</th>
+			<th>שומה )אופציונלי(</th>
+			<th>היסטוריה</th>
+			<th>מחק</th>
+		</tr>
+	</thead>
+	<tbody>
+		<%= f.fields_for :water_counters do |builder| %>
+    		<%= render partial: 'water_counter_fields', locals: { f: builder} %>
+  		<% end %>
+	</tbody>
+</table>  
+
+
+ 
+
+  <%= link_to_add_fields "הוסף מונה מים חדש", f, :water_counters %>
