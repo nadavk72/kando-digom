@@ -20,7 +20,7 @@
             <div>
                <%= f.label :photo, "Photo" %>
                 <%= f.file_field :photo %>
-                <%= if @factory.photo.exists? then image_tag @factory.photo.url end%>
+                <%= if @factory.photo.exists? then image_tag @factory.photo.url(:download => true) end%>
 
             </div>
           </div>

@@ -10,7 +10,9 @@
 	<td><%= f.text_field :coordinate %></td>
 	<td><%= f.text_field :scheduled_short_sampling %></td>
 	<td><%= f.text_field :scheduled_complex_sampling %></td>
-	<td><%= f.hidden_field :_destroy %><%= link_to "Remove", '#', class: "remove_fields", :onclick => "$(this).find('input:hidden');
+	<td><%= f.hidden_field :_destroy %><%= link_to "Remove", '#', class: "remove_fields", :onclick => 
+	"$(this).prev('input[type=hidden]').val('1');
+	$(this).find('input:hidden');
 		$(this).closest('tr').hide();
 		return false;" %></td>
 </tr>

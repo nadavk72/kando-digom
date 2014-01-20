@@ -9,7 +9,7 @@ module ApplicationHelper
 	    end
 	    link_to(name, '#', class: "add_fields", :onclick => "time = new Date().getTime();
 		regexp = new RegExp($(this).data('id'), 'g');
-		$('tbody').append($(this).data('fields').replace(regexp, time)); return false;" , data: {id: id, fields: fields.gsub("\n", "")})
+		$(this).closest('div').find('tbody').append($(this).data('fields').replace(regexp, time)); return false;" , data: {id: id, fields: fields.gsub("\n", "")})
   	end
 
 	def sortable(title = nil, column)
