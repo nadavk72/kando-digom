@@ -20,8 +20,8 @@
     <tr>
       <td><%= link_to factory.name , factory %></td>
       <td><%= factory.clientNumber %></td>
-      <td><%= factory.address.street%></td>
-      <td><%= factory.address.city.name %></td>
+      <td><%= factory.address.street unless factory.address.nil?%></td>
+      <td><%= factory.address.city.name unless factory.address.nil? or factory.address.city.nil? %></td>
       <td><%= Sector.find(factory.sectorId).name %></td>
       <td><%= factory.physicalNumber %></td>
       <td><%= SewageFarm.find(factory.sewageFarmId).name %></td>

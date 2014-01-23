@@ -9,7 +9,7 @@
 	<td><%= f.text_field :description %></td>
 	<td><%= f.text_field :coordinate %></td>
 	<td><%= f.collection_select :water_counter_type_id, WaterCounterType.all, :id, :name, {}, {} %></td>
-	<td><%= f.collection_select :pit_id, Pit.all, :id, :name, {:include_blank => 'לא נבחר'}, {} %></td>
+	<td><%= f.collection_select :pit_id, @factory.pits, :id, :name, {:include_blank => 'לא נבחר'}, {} %></td>
 	<td><span class="label label label-info"><%= link_to 'צפה', '#' , :onclick => "alert ('sfsfs');" %></span></td>
 	<td><%= f.hidden_field :_destroy %><%= link_to "מחק", '#', class: "remove_fields", :onclick => 
 	"$(this).prev('input[type=hidden]').val('1');

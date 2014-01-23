@@ -26,7 +26,7 @@ accepts_nested_attributes_for :shipping_address
   validates :sewageFarmId, presence: true
   validates :waterSupplierId, presence: true
 
-	
+
 	def self.search(search)
 	  if search
 	    where('name LIKE ? 

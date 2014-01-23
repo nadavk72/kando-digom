@@ -58,6 +58,7 @@
   # PATCH/PUT /factories/1.json
   def update
 
+    
     @factory.sampling_parameters.clear
     if !params[:sampling_parameters].blank? then
       params[:sampling_parameters].each do |param|
@@ -66,6 +67,8 @@
         end    
       end     
     end
+
+    calc_physical
 
     respond_to do |format|
       if @factory.update(factory_params)
@@ -89,6 +92,17 @@
   end
 
   private
+    
+    def calc_physical
+      ar = Array.new 
+        factory_params[:water_counters_attributes].each { |id, cw| ar << cw[:physical_number] }
+              if ar.blank?
+                 @factory.physicalNumber = ''
+               else
+                 @factory.physicalNumber = ar.join ', '
+              end
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_factory
       @factory = Factory.find(params[:id])
@@ -97,19 +111,15 @@
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def factory_params
-        #params.require(:factory).permit(:name, {contacts_attributes: :firstName}, :corporate_id, :clientNumber, :address, :cityId, :sectorId, :physicalNumber, :sewageFarmId, :arrangement, :waterSupplierId, :isActive)
-        params.require(:factory).permit!
-    end
-
-
-    def factoryAddress_params
-        #params.require(:factory).permit(:name, {contacts_attributes: :firstName}, :corporate_id, :clientNumber, :address, :cityId, :sectorId, :physicalNumber, :sewageFarmId, :arrangement, :waterSupplierId, :isActive)
-        params.require(:address).permit!
-    end
-
-    def mailingAddress_params
-        #params.require(:factory).permit(:name, {contacts_attributes: :firstName}, :corporate_id, :clientNumber, :address, :cityId, :sectorId, :physicalNumber, :sewageFarmId, :arrangement, :waterSupplierId, :isActive)
-        params.require(:mailingAddress).permit!
+        params.require(:factory).permit(:name, :corporate_id, :clientNumber, :sectorId, :sewageFarmId, :waterSupplierId, :isActive, :photo,
+         :address_attributes => [:id, :street, :streetNumber, :poBox, :zip, :city_id],
+         :shipping_address_attributes => [:id, :street, :streetNumber, :poBox, :zip, :city_id],
+         :sampling_parameters_attributes => [:id],
+         :contacts_attributes => [:id, :firstName, :lastName, :role, :phone, :ext, :fax, :cellPhone, :email, :responsible, :_destroy],
+         :pits_attributes => [:id, :name, :pit_type_id, :photo, :description, :coordinate, :scheduled_short_sampling, :scheduled_complex_sampling, :_destroy],
+         :water_counters_attributes => [:id, :physical_number, :photo, :description, :coordinate, :water_counter_type_id, :pit_id, :_destroy]
+        )
+    #params.require(:factory).permit!
     end
 end
 
