@@ -50,3 +50,9 @@ he:
   yearly_schedule: "תיאום שנתי"
   working_days: "תיאום ימי עבודה"
   new_factory: "הוסף מפעל חדש"
+
+  responsible_types:
+    contact_type_meetings: "תיאום פגישות"
+    contact_type_letters: "מכתבים"
+    contact_type_samplings: "דיגומי שטח"
+    contact_type_general: "כללי"

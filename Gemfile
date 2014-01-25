@@ -15,7 +15,8 @@ gem "paperclip-dropbox", ">= 1.1.7"
 gem 'rmagick', '2.13.2'
 
 group :development, :test do
-  gem 'sqlite3', '1.3.8'
+  #gem 'sqlite3', '1.3.8'
+  gem 'pg'
   gem 'rspec-rails', '2.13.1'
   # The following optional lines are part of the advanced setup.
   # gem 'guard-rspec', '2.5.0'
@@ -55,7 +56,8 @@ group :doc do
 end
 
 group :production do
-  gem 'pg', '0.15.1'
+  #gem 'pg', '0.15.1'
+  gem 'pg'
   gem 'rails_12factor', '0.0.2'
 end
 

@@ -1,4 +1,5 @@
 class Factory < ActiveRecord::Base
+before_save :calc_physical
 belongs_to :corporate
 belongs_to :sector
 belongs_to :sewageFarm
@@ -25,13 +26,23 @@ accepts_nested_attributes_for :shipping_address
   validates :sectorId, presence: true
   validates :sewageFarmId, presence: true
   validates :waterSupplierId, presence: true
+  validates :clientNumber, presence: true
 
-
+  	def calc_physical
+  		ar = Array.new 
+       	self.water_counters.each {|wc| ar << wc.physical_number unless  wc._destroy}
+              if ar.blank?
+                 self.physicalNumber = ''
+               else
+                 self.physicalNumber = ar.join ', '
+              end
+  	end
+	
 	def self.search(search)
 	  if search
-	    where('name LIKE ? 
-	    	or clientNumber LIKE ? 
-	    	or physicalNumber LIKE ?',
+	    where("name LIKE ? 
+	    	or \"clientNumber\" LIKE ? 
+	    	or \"physicalNumber\" LIKE ?",
 	    	 "%#{search}%" , "%#{search}%", "%#{search}%")
 	  else
 	    scoped

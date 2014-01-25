@@ -28,7 +28,7 @@ class SectorsController < ApplicationController
     @sector = Sector.new(sector_params)
 
     @sector.sampling_parameters.clear
-    params[:sampling_parameters].each do |param|
+    params[:sampling_parameters].try(:each) do |param|
       if !param.empty?
         @sector.sampling_parameters << SamplingParameter.find(param)
       end    
@@ -54,7 +54,7 @@ class SectorsController < ApplicationController
 
 
     @sector.sampling_parameters.clear
-    params[:sampling_parameters].each do |param|
+    params[:sampling_parameters].try(:each) do |param|
       if !param.empty?
         @sector.sampling_parameters << SamplingParameter.find(param)
       end    

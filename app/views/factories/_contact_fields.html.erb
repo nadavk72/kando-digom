@@ -8,7 +8,7 @@
 	<td><%= f.text_field :fax %></td>
 	<td><%= f.text_field :cellPhone %></td>
 	<td><%= f.text_field :email %></td>
-	<td><%= f.text_field :responsible %></td>
+	<td><%= f.select(:responsible, Contact::RESPONSIBLE_TYPES.map { |s| [I18n.t("responsible_types.#{s}"), s] }) %></td>
 	<td><%= f.hidden_field :_destroy %><%= link_to "Remove", '#', class: "remove_fields", :onclick => 
 		"$(this).prev('input[type=hidden]').val('1');
 		$(this).find('input:hidden');

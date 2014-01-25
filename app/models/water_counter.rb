@@ -6,4 +6,8 @@ class WaterCounter < ActiveRecord::Base
     :storage => :dropbox,
     :dropbox_credentials => Rails.root.join("config/dropbox.yml"),
     :path => "/water_counter/:id/:style/:basename.:extension"
+
+	validates :physical_number, presence: true, uniqueness: true
+	validates :description, presence: true
+
 end

@@ -68,7 +68,7 @@
       end     
     end
 
-    calc_physical
+    #calc_physical
 
     respond_to do |format|
       if @factory.update(factory_params)

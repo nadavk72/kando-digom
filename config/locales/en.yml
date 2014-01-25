@@ -58,7 +58,12 @@ en:
   yearly_schedule: Yearly Schedule
   working_days: Working Days
   new_factory: Add Factory
- 
+  
+  responsible_types:
+    contact_type_meetings: "meetings"
+    contact_type_letters: "letters"
+    contact_type_samplings: "Sampling"
+    contact_type_general: "General" 
 
   activerecord:
     models:

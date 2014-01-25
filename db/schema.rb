@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20140119210936) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "addresses", force: true do |t|
     t.string   "street"
     t.integer  "streetNumber"
@@ -93,7 +96,7 @@ ActiveRecord::Schema.define(version: 20140119210936) do
     t.datetime "photo_updated_at"
   end
 
-  add_index "factories", ["corporate_id", "created_at"], name: "index_factories_on_corporate_id_and_created_at"
+  add_index "factories", ["corporate_id", "created_at"], name: "index_factories_on_corporate_id_and_created_at", using: :btree
 
   create_table "factories_sampling_parameters", force: true do |t|
     t.integer "sampling_parameter_id"
@@ -137,6 +140,11 @@ ActiveRecord::Schema.define(version: 20140119210936) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "sectors_sampling_parameters", force: true do |t|
+    t.integer "sector_id"
+    t.integer "sampling_parameter_id"
   end
 
   create_table "sewage_farms", force: true do |t|
