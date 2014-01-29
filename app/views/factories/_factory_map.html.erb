@@ -1,0 +1,4 @@
+
+<%= f.label :map, "Map" %>
+<%= f.file_field :map %>
+<%= if @factory.map.exists? then image_tag @factory.map.url(:small, :download => true) end%>

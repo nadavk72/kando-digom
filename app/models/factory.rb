@@ -13,7 +13,13 @@ has_and_belongs_to_many :sampling_parameters
 has_attached_file :photo,
     :storage => :dropbox,
     :dropbox_credentials => Rails.root.join("config/dropbox.yml"),
-    :path => "/factories/:id/:style/:basename.:extension"
+    :path => "/factories/:id/:style/:basename.:extension",
+    :styles => { :small => "100x100>", :medium => "300X300>", :large => "600X600>" }
+has_attached_file :map,
+    :storage => :dropbox,
+    :dropbox_credentials => Rails.root.join("config/dropbox.yml"),
+    :path => "/factories/:id/map/:style/:basename.:extension",
+    :styles => { :small => "100x100>", :medium => "300X300>", :large => "600X600>" }
 accepts_nested_attributes_for :sampling_parameters
 accepts_nested_attributes_for :contacts, allow_destroy: true
 accepts_nested_attributes_for :pits, allow_destroy: true
@@ -27,6 +33,7 @@ accepts_nested_attributes_for :shipping_address
   validates :sewageFarmId, presence: true
   validates :waterSupplierId, presence: true
   validates :clientNumber, presence: true
+  validates :sewage_billing_percentage, presence: true, numericality: true
 
   	def calc_physical
   		ar = Array.new 

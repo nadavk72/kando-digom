@@ -8,6 +8,6 @@ class Pit < ActiveRecord::Base
 
     validates :name, presence: true, :uniqueness => {scope: :factory}
     validates :description, presence: true
-    validates :scheduled_short_sampling, presence: true,  numericality: true
-    validates :scheduled_complex_sampling, presence: true,  numericality: true
+    validates :scheduled_short_sampling, presence: true, numericality: true
+    validates :scheduled_complex_sampling, presence: true, numericality: true
 end

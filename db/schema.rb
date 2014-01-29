@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140119210936) do
+ActiveRecord::Schema.define(version: 20140126212413) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -94,6 +94,11 @@ ActiveRecord::Schema.define(version: 20140119210936) do
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
+    t.integer  "sewage_billing_percentage"
+    t.string   "map_file_name"
+    t.string   "map_content_type"
+    t.integer  "map_file_size"
+    t.datetime "map_updated_at"
   end
 
   add_index "factories", ["corporate_id", "created_at"], name: "index_factories_on_corporate_id_and_created_at", using: :btree

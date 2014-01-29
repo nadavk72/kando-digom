@@ -111,12 +111,13 @@
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def factory_params
-        params.require(:factory).permit(:name, :corporate_id, :clientNumber, :sectorId, :sewageFarmId, :waterSupplierId, :isActive, :photo,
+        params.require(:factory).permit(:name, :corporate_id, :clientNumber, :sectorId, :sewageFarmId, :waterSupplierId, :isActive, :photo, :sewage_billing_percentage, :map,
+          :photo_file_name, :photo_content_type, :photo_file_size, :photo_updated_at,
          :address_attributes => [:id, :street, :streetNumber, :poBox, :zip, :city_id],
          :shipping_address_attributes => [:id, :street, :streetNumber, :poBox, :zip, :city_id],
          :sampling_parameters_attributes => [:id],
          :contacts_attributes => [:id, :firstName, :lastName, :role, :phone, :ext, :fax, :cellPhone, :email, :responsible, :_destroy],
-         :pits_attributes => [:id, :name, :pit_type_id, :photo, :description, :coordinate, :scheduled_short_sampling, :scheduled_complex_sampling, :_destroy],
+         :pits_attributes => [:id, :name, :pit_type_id, :photo, :description, :coordinate, :scheduled_short_sampling, :scheduled_complex_sampling, :_destroy, :photo_file_name, :photo_content_type, :photo_file_size, :photo_updated_at],
          :water_counters_attributes => [:id, :physical_number, :photo, :description, :coordinate, :water_counter_type_id, :pit_id, :_destroy]
         )
     #params.require(:factory).permit!

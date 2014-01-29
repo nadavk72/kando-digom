@@ -24,4 +24,9 @@
 
 
 	<%= link_to_add_fields "הוסף מונה מים חדש", f, :water_counters %>
+
+	<div>
+		<%= f.label "% שפכים לחיוב" %>
+		<%= f.text_field :sewage_billing_percentage %>
+	</div>
 </div>
