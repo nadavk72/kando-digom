@@ -10,23 +10,27 @@
 		</tr>
 	</thead>
 	<tbody>
-		<tr>
-			<td>תמונת מפעל</td>
-			<td><%= link_to File.basename(f.object.photo_file_name), "#" %></td>
-			<td><%= f.label f.object.photo_content_type %></td>
-			<td><%= f.label f.object.photo_file_size %></td>
-			<td><%= f.label f.object.photo_updated_at %></td>
-			<td><%= f.label f.object.photo_updated_at %></td>
-		</tr>
-		<tr>
-			<td>מפת מפעל</td>
-			<td><%= link_to File.basename(f.object.map_file_name), "#" %></td>
-			<td><%= f.label f.object.map_content_type %></td>
-			<td><%= f.label f.object.map_file_size %></td>
-			<td><%= f.label f.object.map_updated_at %></td>
-			<td><%= f.label f.object.map_updated_at %></td>
-		</tr>
+		<% if !f.object.photo_file_name.nil? %>
+			<tr>
+				<td>תמונת מפעל</td>
+				<td><%= link_to File.basename(f.object.photo_file_name), "#" %></td>
+				<td><%= f.label f.object.photo_content_type %></td>
+				<td><%= f.label f.object.photo_file_size %></td>
+				<td><%= f.label f.object.photo_updated_at %></td>
+				<td><%= f.label f.object.photo_updated_at %></td>
+			</tr>
+		<%end%>
 
+		<% if !f.object.photo_file_name.nil? %>
+			<tr>
+				<td>מפת מפעל</td>
+				<td><%= link_to File.basename(f.object.map_file_name), "#" %></td>
+				<td><%= f.label f.object.map_content_type %></td>
+				<td><%= f.label f.object.map_file_size %></td>
+				<td><%= f.label f.object.map_updated_at %></td>
+				<td><%= f.label f.object.map_updated_at %></td>
+			</tr>
+		<%end%>	
 		<%@factory.pits.each do |pit|  unless pit.photo_file_name.nil?%>
 			<tr>
 				<td>תמונת שוחה <%= pit.name %></td>

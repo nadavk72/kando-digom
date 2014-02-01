@@ -1,4 +1,4 @@
 <h1>מפעל חדש</h1>
 
 <%= render 'form_v1' %>
-<%= link_to 'בטל', factories_path ,{:class=>"btn btn-xs btn-primary"}%>
+<%= link_to 'בטל', factories_path(:corporate_id => corporate_param),{:class=>"btn btn-xs btn-primary"}%>

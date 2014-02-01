@@ -25,4 +25,8 @@ class ApplicationController < ActionController::Base
   def home
     
   end
+
+  def corporate_param
+    params[:corporate_id].nil? ? Corporate.first.id : params[:corporate_id] 
+  end
 end

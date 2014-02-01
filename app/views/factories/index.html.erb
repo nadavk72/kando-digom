@@ -12,7 +12,7 @@
               </div>
               <div>
                 <br>
-                <h6>(<%= @factories.length %> תוצאות)</h6>
+                <h6>(<%= @factories ? 0 : @factories.length  %> תוצאות)</h6>
               </div>
             </div>
           </div>
@@ -47,14 +47,15 @@
                 </div>
                 <div  class="col-md-1 col-sm-1">
                   <div style="float: right; margin-bottom: 10px; margin-left: 0px">
-                    <%= link_to t('new_factory'), new_factory_path ,{:class=>"btn btn-xs btn-primary"}%>
+                    <%= link_to t('new_factory'), new_factory_path(:corporate_id => corporate_param) ,{:class=>"btn btn-xs btn-primary"}%>
                   </div>
                 </div>
               </div>
 
-              <%= form_tag factories_path, :method => 'get', :id => 'factories_search' do %>
+              <%= form_tag factories_path(:corporate_id => corporate_param), :method => 'get', :id => 'factories_search' do %>
                   <%= hidden_field_tag :direction, params[:direction] %>
                   <%= hidden_field_tag :sort, params[:sort] %>
+                  <%= hidden_field_tag :corporate_id, params[:corporate_id] %>
                 <p>
                   <%= text_field_tag :search, params[:search] %>
                   <%= submit_tag "Search", :name => nil %>

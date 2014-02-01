@@ -1,4 +1,5 @@
 class Factory < ActiveRecord::Base
+scope :scope_by_corp, ->(corp) { where("corporate_id = ?", corp) }
 before_save :calc_physical
 belongs_to :corporate
 belongs_to :sector

@@ -7,7 +7,7 @@
   # GET /factories
   # GET /factories.json
   def index
-    @factories = Factory.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => 20, :page => params[:page])
+    @factories = Factory.scope_by_corp(corporate_param).search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => 20, :page => params[:page])
   end
 
   def sort_column
@@ -27,6 +27,7 @@
   def new
     @factory = Factory.new
     create_addresses
+    @factory.corporate_id = corporate_param
 
   end
 
@@ -38,17 +39,18 @@
   # POST /factories.json
   def create
     @factory = Factory.new(factory_params)
-    @factory.corporate_id = 1
+
+
     if @factory.sampling_parameters blank?
       @factory.sampling_parameters = Sector.find(@factory.sectorId).sampling_parameters
     end
 
     respond_to do |format|
       if @factory.save
-        format.html { redirect_to factories_url, notice: 'Factory was successfully created.' }
+        format.html { redirect_to factories_url(:corporate_id => @factory.corporate_id), notice: 'Factory was successfully created.' }
         format.json { render action: 'show', status: :created, location: @factory }
       else
-        format.html { render action: 'new' }
+        format.html { render action: 'new' , :locals => {:corporate_id => @factory.corporate_id} }
         format.json { render json: @factory.errors, status: :unprocessable_entity }
       end
     end
@@ -72,10 +74,10 @@
 
     respond_to do |format|
       if @factory.update(factory_params)
-        format.html { redirect_to @factory, notice: 'Factory was successfully updated.' }
+        format.html { redirect_to factories_url(:corporate_id => @factory.corporate_id), notice: 'Factory was successfully updated.'}
         format.json { head :no_content }
       else
-        format.html { render action: 'edit' }
+        format.html { render action: 'edit', :locals => {:corporate_id => @factory.corporate_id} }
         format.json { render json: @factory.errors, status: :unprocessable_entity }
       end
     end
@@ -86,7 +88,7 @@
   def destroy
     @factory.destroy
     respond_to do |format|
-      format.html { redirect_to factories_url }
+      format.html { redirect_to factories_url(:corporate_id => @factory.corporate_id) }
       format.json { head :no_content }
     end
   end

@@ -30,8 +30,7 @@
 
         <!-- Search bar start -->
         <div class="custom-search hidden-xs">
-          <input type="text" class="search-query" placeholder="Search here">
-          <i class="icon-search"></i>
+          <%= select_tag 'corporate_combo', options_for_select(Corporate.find(:all, :order=>:name).collect{ |c| [c.name,c.id]}, corporate_param), :onchange => "document.location.href = '/factories?corporate_id=' + this.value;" %>
         </div>
         <!-- Search bar end -->
 

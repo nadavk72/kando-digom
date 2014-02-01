@@ -18,4 +18,8 @@ module ApplicationHelper
   		direction = column == sort_column && sort_direction == "asc" ? "desc" : "asc"
   		link_to title, params.merge(:sort => column, :direction => direction, :page => nil), {:class => css_class}
 	end
+
+	def corporate_param
+    	params[:corporate_id].nil? ? Corporate.first.id : params[:corporate_id] 
+  	end
 end

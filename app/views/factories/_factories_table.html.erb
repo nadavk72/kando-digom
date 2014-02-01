@@ -28,7 +28,7 @@
       <td><%= factory.arrangement ? "V" : "" %></td>
       <td><%= WaterSupplier.find(factory.waterSupplierId).name %></td>
       <td><%= factory.isActive ? "פעיל" : "לא פעיל" %></td>
-      <td><span class="label label label-info"><%= link_to 'ערוך', edit_factory_path(factory) %></span></td>
+      <td><span class="label label label-info"><%= link_to 'ערוך', edit_factory_path(factory, :corporate_id => factory.corporate_id) %></span></td>
       <td><span class="label label label-danger"><%= link_to 'מחק', factory, method: :delete, data: { confirm: 'Are you sure?' } %></span></td>
     </tr>
     <% end %>
